@@ -1,0 +1,22 @@
+<mat-toolbar class="mat-elevation-z3 gradColor">
+  <a mat-icon-button mat-button [matMenuTriggerFor]="menu">
+    <mat-icon aria-hidden="false" aria-label="Example home icon">list</mat-icon>
+  </a>
+  <mat-menu #menu="matMenu">
+    <a mat-menu-item routerLink="/"><mat-icon>home</mat-icon>Inicio
+    </a>
+    <a mat-menu-item ><mat-icon>shopping_cart</mat-icon>Caixa
+    </a>
+    <a mat-menu-item ><mat-icon>list</mat-icon>Historico
+    </a>
+    <a mat-menu-item routerLink="/produtosLista"><mat-icon>card_giftcard</mat-icon>Produtos
+    </a>
+    <a mat-menu-item >
+      <mat-icon>supervisor_account</mat-icon>Colaboradores
+    </a>
+    <a mat-menu-item>
+      <mat-icon>perm_contact_calendar</mat-icon> Clientes
+    </a>
+  </mat-menu>
+  NalluBaby
+</mat-toolbar>
