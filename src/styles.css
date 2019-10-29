@@ -3,3 +3,50 @@
 s
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+
+.titleFull {
+    text-align: center;
+    background: #f5f5f5;
+    display: grid;
+    color: #a7a7a7;
+}
+.titleFull h4 {
+    margin: 11px;
+}
+
+tr:hover {
+    background: #f5f5f5;
+}
+
+.btAdd {
+    background-color: #2eb9b2 !important;
+}
+.spinner {    
+    margin: 0 auto;
+    display: flex;
+    width: 165px;
+  }
+
+.fab-bottom-back{
+    position: fixed !important;
+    bottom:15px;
+    right: 15px;
+}
+
+.titleFull>div {
+    display: flex;
+    width: 300px;
+    margin: 0 auto;
+}
+.titleFull>div>button{
+    background-color: #ececec;
+}
+
+.fab-bottom-right{
+    position: fixed !important;
+    bottom:15px;
+    right: 15px;
+  }
+
+

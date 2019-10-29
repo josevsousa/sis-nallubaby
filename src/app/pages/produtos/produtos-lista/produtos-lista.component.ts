@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Location } from "@angular/common";
+
+import { MatDialog, MatDialogConfig } from '@angular/material';
 
 @Component({
   selector: 'app-produtos-lista',
@@ -7,9 +10,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProdutosListaComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private location: Location,
+    private dialog: MatDialog,
+  ) { }
 
   ngOnInit() {
+  }
+
+  backPage(){
+    this.location.back();
   }
 
 }
