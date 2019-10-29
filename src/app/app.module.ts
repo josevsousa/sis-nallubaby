@@ -9,11 +9,13 @@ import { AngularFireModule } from "angularfire2";
 import { AngularFirestoreModule } from "angularfire2/firestore";
 import { AngularFireAuthModule } from "@angular/fire/auth";
 
+import { AuthService } from "./services/auth.service";
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ToolBarComponent } from './components/tool-bar/tool-bar.component';
 import { InicioComponent } from "./inicio/inicio.component";
+
 
 import { 
   MatToolbarModule,
@@ -34,6 +36,9 @@ import {
 
 import { ProdutosListaComponent } from './pages/produtos/produtos-lista/produtos-lista.component';
 import { ProdutosDialogComponent } from './pages/produtos/produtos-dialog/produtos-dialog.component';
+import { AuthComponent } from './components/auth/auth.component';
+import { AngularFireAuthGuard } from '@angular/fire/auth-guard';
+import { LoginComponent } from './login/login.component';
 
 
 
@@ -43,7 +48,9 @@ import { ProdutosDialogComponent } from './pages/produtos/produtos-dialog/produt
     ToolBarComponent,
     InicioComponent,
     ProdutosListaComponent,
-    ProdutosDialogComponent
+    ProdutosDialogComponent,
+    AuthComponent,
+    LoginComponent
   ],
   imports: [
     // BrowserModule,
@@ -67,7 +74,7 @@ import { ProdutosDialogComponent } from './pages/produtos/produtos-dialog/produt
     MatAutocompleteModule,
     MatSelectModule
   ],
-  providers: [],
+  providers: [ AuthService ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,0 +1,30 @@
+/* .example-icon {
+    padding: 0 14px;
+  }
+  
+  .example-spacer {
+    flex: 1 1 auto;
+  }
+
+   */
+
+.offline{
+    right: 10px;
+    top: 10px;
+    position: fixed;
+    color: aliceblue;
+}
+
+
+a:hover{
+  cursor:  ;
+}
+.avatar{
+    right: 10px;
+    top: 8px;
+    position: fixed;
+    color: aliceblue;
+    width: 40px;
+    border: 3px solid #555796;
+    border-radius: 50%;
+}

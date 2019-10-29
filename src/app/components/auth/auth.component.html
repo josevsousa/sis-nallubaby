@@ -1,0 +1,11 @@
+<div *ngIf="authService.afAuth.user | async as user; else showLogin">
+    <a (click)="logout()">
+        <img [src]="user.photoURL" alt="" class="avatar">
+    </a>
+</div>
+<ng-template #showLogin>
+    <button mat-icon-button class="offline"  (click)="login()">
+        <mat-icon>lock_outline</mat-icon>
+    </button>
+</ng-template>
+
