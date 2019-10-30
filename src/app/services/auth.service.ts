@@ -10,12 +10,17 @@ import { auth } from 'firebase';
 })
 export class AuthService {
 
-  userAuth: boolean = false;
+  private user: firebase.User;
+
 
   constructor(
     public afAuth: AngularFireAuth,
     public afs: AngularFirestore 
-  ) { }
+  ) {
+    afAuth.authState.subscribe(user => {
+      this.user = user;
+    });
+   }
 
   async login() {
     try {
@@ -28,14 +33,16 @@ export class AuthService {
           uid: user.user.uid
         }
       );
-      this.userAuth = true;
     } catch (error) {
       console.log(error);
     }
   }
   logout() {
     this.afAuth.auth.signOut();
-    this.userAuth = false;
+  }
+
+  statusLogin(){
+    return this.user;
   }
 
 }

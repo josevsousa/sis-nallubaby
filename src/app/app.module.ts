@@ -1,6 +1,7 @@
 // import { BrowserModule } from '@angular/platform-browser';
 import { NoopAnimationsModule, BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 
@@ -10,6 +11,7 @@ import { AngularFirestoreModule } from "angularfire2/firestore";
 import { AngularFireAuthModule } from "@angular/fire/auth";
 
 import { AuthService } from "./services/auth.service";
+import { ProdutosService } from "./services/produtos.service";
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -35,7 +37,7 @@ import {
 } from "@angular/material";
 
 import { ProdutosListaComponent } from './pages/produtos/produtos-lista/produtos-lista.component';
-import { ProdutosDialogComponent } from './pages/produtos/produtos-dialog/produtos-dialog.component';
+import { ProdutoDialogComponent } from './pages/produtos/produto-dialog/produto-dialog.component';
 import { AuthComponent } from './components/auth/auth.component';
 import { AngularFireAuthGuard } from '@angular/fire/auth-guard';
 import { LoginComponent } from './login/login.component';
@@ -49,9 +51,13 @@ import { AuthGuard } from "./guards/auth.guard";
     ToolBarComponent,
     InicioComponent,
     ProdutosListaComponent,
-    ProdutosDialogComponent,
     AuthComponent,
-    LoginComponent
+    LoginComponent,
+    ProdutoDialogComponent
+  ],
+  entryComponents: [
+    ProdutoDialogComponent,
+    // CadastroDialogComponent 
   ],
   imports: [
     // BrowserModule,
@@ -59,6 +65,8 @@ import { AuthGuard } from "./guards/auth.guard";
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule,
     AngularFireAuthModule,
+    FormsModule,
+    ReactiveFormsModule,
     AppRoutingModule,
     MatToolbarModule,
     MatButtonModule,
@@ -75,7 +83,7 @@ import { AuthGuard } from "./guards/auth.guard";
     MatAutocompleteModule,
     MatSelectModule
   ],
-  providers: [ AuthService, AuthGuard ],
+  providers: [AuthService, AuthGuard, ProdutosService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

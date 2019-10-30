@@ -6,12 +6,54 @@
         <h4>lISTA DE PRODUTOS</h4>
     </div>
 </div>
-<button mat-fab class="fab-bottom-back btAdd">
+<button mat-fab class="fab-bottom-back btAdd" (click)="showDialog()">
     <mat-icon>add</mat-icon>
 </button>
 
-  <ul> 
-    <li *ngFor="let item of items | async">
-      {{ item.codigo }}
-    </li>
-  </ul>
+
+<img src="../../../../assets/load.gif" *ngIf="loading" class="spinner" alt="">
+
+
+<table matSort (matSortChange)="sortData($event)">
+  <tr *ngIf="!loading">
+    <th mat-sort-header="menu" class="bt"></th>
+    <th mat-sort-header="codigo">Codigo</th>
+    <th mat-sort-header="name">Nome</th>
+    <th mat-sort-header="valor">Valor</th>
+    <th mat-sort-header="descricao">Descrição</th>
+  </tr>
+
+  <tr *ngFor="let produto of produtos$ | async">
+    <td class="bt">
+  
+    <mat-nav-list>
+      <button 
+        mat-icon-button 
+        [matMenuTriggerFor]="produtoMenu"
+        [matMenuTriggerData]="{produtoUpdateToDelete: produto}">
+        <mat-icon>drag_indicator</mat-icon>
+      </button>
+    </mat-nav-list>
+
+    <mat-menu #produtoMenu="matMenu">
+      <ng-template matMenuContent let-produto="produtoUpdateToDelete">
+        <button mat-menu-item (click)="showDialog(produto)">
+            <mat-icon>edit</mat-icon>
+            <span>Editar</span>
+          </button>
+
+          <button mat-menu-item (click)="onDelete(produto)">
+            <mat-icon>delete</mat-icon>
+            <span>Remove</span>
+          </button>
+      </ng-template>
+    </mat-menu>
+    
+  </td>
+    <td>{{produto.codigo}}</td>
+    <td>{{produto.nome}}</td>
+    <td>{{produto.valor | currency: 'BRL'}}</td>
+    <td>{{produto.descricao}}</td>
+
+  </tr>
+</table>
