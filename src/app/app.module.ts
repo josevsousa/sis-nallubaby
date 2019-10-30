@@ -83,7 +83,11 @@ import { AuthGuard } from "./guards/auth.guard";
     MatAutocompleteModule,
     MatSelectModule
   ],
-  providers: [AuthService, AuthGuard, ProdutosService],
+  providers: [
+    AuthService,
+    AuthGuard,
+    ProdutosService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
