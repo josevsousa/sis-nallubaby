@@ -5,19 +5,19 @@
   <mat-menu #menu="matMenu">
     <a mat-menu-item routerLink="/"><mat-icon>home</mat-icon>Inicio
     </a>
-    <a mat-menu-item ><mat-icon>shopping_cart</mat-icon>Caixa
+    <a mat-menu-item routerLink="/caixa"><mat-icon>shopping_cart</mat-icon>Caixa
     </a>
-    <a mat-menu-item ><mat-icon>list</mat-icon>Historico
+    <a mat-menu-item routerLink="/historico"><mat-icon>list</mat-icon>Historico
     </a>
     <a mat-menu-item routerLink="/produtosLista"><mat-icon>card_giftcard</mat-icon>Produtos
     </a>
-    <a mat-menu-item >
+    <a mat-menu-item routerLink="/colaboradores">
       <mat-icon>supervisor_account</mat-icon>Colaboradores
     </a>
-    <a mat-menu-item>
+    <a mat-menu-item routerLink="/clientes">
       <mat-icon>perm_contact_calendar</mat-icon> Clientes
     </a>
   </mat-menu>
   <span>NalluBaby</span>
-  <!-- <app-auth></app-auth> -->
+  <app-auth></app-auth>
 </mat-toolbar>

@@ -40,6 +40,7 @@ import { AuthComponent } from './components/auth/auth.component';
 import { AngularFireAuthGuard } from '@angular/fire/auth-guard';
 import { LoginComponent } from './login/login.component';
 
+import { AuthGuard } from "./guards/auth.guard";
 
 
 @NgModule({
@@ -74,7 +75,7 @@ import { LoginComponent } from './login/login.component';
     MatAutocompleteModule,
     MatSelectModule
   ],
-  providers: [ AuthService ],
+  providers: [ AuthService, AuthGuard ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
