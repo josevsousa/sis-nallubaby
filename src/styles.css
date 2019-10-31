@@ -1,9 +1,12 @@
 /* You can add global styles to this file, and also import other style files */
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
-s
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
+html, body{
+    margin: 0px;
+    height: 100%;
+}
+
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
 .titleFull {
     text-align: center;
@@ -49,4 +52,40 @@ tr:hover {
     right: 15px;
   }
 
+
+/* form cadastro */
+mat-form-field.nome, mat-form-field.email {
+    width: 99%;
+}
+mat-form-field.celular, mat-form-field.fixo {
+    width: 49%;
+}
+
+mat-form-field.cidade {
+    width: 56%;
+}
+mat-form-field.bairro {
+    width: 29%;
+}
+mat-form-field.uf {
+    width: 11%;
+}
+
+mat-form-field.rua {
+    width: 89%;
+}
+mat-form-field.numero {
+    width: 9%;
+}
+
+mat-form-field.rg, mat-form-field.cpf {
+    width: 49%;
+}
+
+mat-form-field.cnpj, mat-form-field.insc, mat-form-field.cep {
+    width: 32%;
+}
+mat-form-field {
+    margin-right: 5px;
+}
 

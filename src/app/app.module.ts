@@ -36,13 +36,18 @@ import {
   MatSelectModule
 } from "@angular/material";
 
+import { CadastroService } from "./services/cadastro.service";
+
 import { ProdutosListaComponent } from './pages/produtos/produtos-lista/produtos-lista.component';
 import { ProdutoDialogComponent } from './pages/produtos/produto-dialog/produto-dialog.component';
 import { AuthComponent } from './components/auth/auth.component';
-import { AngularFireAuthGuard } from '@angular/fire/auth-guard';
+
 import { LoginComponent } from './login/login.component';
 
 import { AuthGuard } from "./guards/auth.guard";
+import { ClientesComponent } from './pages/clientes-colaboradores/clientes/clientes.component';
+import { ColaboradoresComponent } from './pages/clientes-colaboradores/colaboradores/colaboradores.component';
+import { CadastroDialogComponent } from './pages/clientes-colaboradores/cadastro-dialog/cadastro-dialog.component';
 
 
 @NgModule({
@@ -53,11 +58,14 @@ import { AuthGuard } from "./guards/auth.guard";
     ProdutosListaComponent,
     AuthComponent,
     LoginComponent,
-    ProdutoDialogComponent
+    ProdutoDialogComponent,
+    ClientesComponent,
+    ColaboradoresComponent,
+    CadastroDialogComponent
   ],
   entryComponents: [
     ProdutoDialogComponent,
-    // CadastroDialogComponent 
+    CadastroDialogComponent 
   ],
   imports: [
     // BrowserModule,
@@ -86,7 +94,8 @@ import { AuthGuard } from "./guards/auth.guard";
   providers: [
     AuthService,
     AuthGuard,
-    ProdutosService
+    ProdutosService,
+    CadastroService
   ],
   bootstrap: [AppComponent]
 })

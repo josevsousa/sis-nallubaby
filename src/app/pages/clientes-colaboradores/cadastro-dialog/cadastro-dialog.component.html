@@ -1,0 +1,78 @@
+<h1 mat-dialog-title>{{ dialogTitle }}</h1>
+
+<mat-dialog-content>
+
+    <mat-form-field class="nome">
+        <input type="string" placeholder="Nome" matInput [(ngModel)]="novoCadastro.nome" required minlength="3"
+            #titleControl="ngModel">
+    </mat-form-field>
+
+        <!-- <mat-form-field class="categoria">
+                <input type="string" placeholder="Categoria" value="categoria" matInput [(ngModel)]="novoCadastro.categoria" minlength="3">
+                </mat-form-field>
+            -->
+    
+
+    <mat-form-field class="celular">
+        <input type="string" placeholder="celular" matInput [(ngModel)]="novoCadastro.celular" required minlength="3"
+            #titleControl="ngModel">
+    </mat-form-field>
+
+    <mat-form-field class="fixo">
+        <input type="string" placeholder="fixo" matInput [(ngModel)]="novoCadastro.fixo" minlength="3" >
+    </mat-form-field>
+
+    <mat-form-field class="email">
+        <input type="string" placeholder="email" matInput [(ngModel)]="novoCadastro.email" minlength="3">
+    </mat-form-field>
+
+    <mat-form-field class="rg">
+        <input type="string"  placeholder="rg" matInput [(ngModel)]="novoCadastro.rg" minlength="3">
+    </mat-form-field>
+
+    <mat-form-field class="cpf">
+        <input type="string" placeholder="cpf" matInput [(ngModel)]="novoCadastro.cpf" minlength="3">
+    </mat-form-field>
+
+    <!-- =-------------------- -->
+    <mat-form-field class="cnpj">
+        <input type="string" placeholder="cnpj" matInput [(ngModel)]="novoCadastro.cnpj" minlength="3">
+    </mat-form-field>
+
+    <mat-form-field class="insc">
+        <input type="string" placeholder="insc" matInput [(ngModel)]="novoCadastro.insc" minlength="3">
+    </mat-form-field>
+
+    <mat-form-field class="cep">
+        <input type="string" placeholder="cep" matInput [(ngModel)]="novoCadastro.cep" minlength="3">
+    </mat-form-field>
+    <!-- ----------------------- -->
+
+    <mat-form-field class="bairro">
+        <input type="string" placeholder="bairro" matInput [(ngModel)]="novoCadastro.bairro" minlength="3">
+    </mat-form-field>
+
+    <mat-form-field class="uf">
+        <input type="string" placeholder="uf" matInput [(ngModel)]="novoCadastro.uf" minlength="3">
+    </mat-form-field>
+    <!-- ----------------------- -->
+
+    <mat-form-field class="cidade">
+        <input type="string" placeholder="cidade" matInput [(ngModel)]="novoCadastro.cidade" minlength="3">
+    </mat-form-field>
+
+    <mat-form-field class="rua">
+        <input type="string" placeholder="rua" matInput [(ngModel)]="novoCadastro.logradouro" minlength="3">
+    </mat-form-field>
+
+    <mat-form-field class="numero">
+        <input type="string" placeholder="numero" matInput [(ngModel)]="novoCadastro.numero" minlength="3">
+    </mat-form-field>
+
+
+</mat-dialog-content>
+
+<mat-dialog-actions>
+    <button mat-button mat-dialog-close>Cancelar</button>
+    <button mat-button [disabled]="titleControl.invalid" (click)="onSave()">Salvar</button>
+</mat-dialog-actions>
