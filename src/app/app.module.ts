@@ -73,6 +73,7 @@ import { CadastroDialogComponent } from './pages/clientes-colaboradores/cadastro
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule,
     AngularFireAuthModule,
+    AngularFirestoreModule.enablePersistence(),
     FormsModule,
     ReactiveFormsModule,
     AppRoutingModule,
