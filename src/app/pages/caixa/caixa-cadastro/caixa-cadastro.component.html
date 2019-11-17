@@ -1,0 +1,52 @@
+<form class="example-form" [formGroup]="formulario" (ngSubmit)="ngSubmit()">
+<mat-form-field class="CR">
+    <mat-label>Cliente</mat-label>
+    <mat-select  [(value)]="selectCliente" required (selectionChange)="onSelectCliente()" >
+        <ng-container *ngFor="let cadastro of cadastro$ | async">
+            <mat-option *ngIf="(cadastro.categoria !== 'colaborador') && (cadastro.categoria !== 'representante')"
+                value="{{cadastro.uid}}">
+                <!-- so exibe os clientes -->
+                {{cadastro.nome| uppercase}}
+            </mat-option>
+        </ng-container>
+    </mat-select>
+</mat-form-field>
+<mat-form-field class="CR">
+    <mat-label>Representante</mat-label>
+    <mat-select [(value)]="selectRepresentante" required (selectionChange)="onSelectRepresentante()">
+        <!-- (selectionChange)="onChange($event.value)" -->
+        <ng-container *ngFor="let cadastro of cadastro$ | async">
+            <mat-option *ngIf="cadastro.categoria === 'representante'" value="{{cadastro.uid}}">
+                <!-- so exibe os representantes -->
+                {{cadastro.nome | uppercase}}
+            </mat-option>
+        </ng-container>
+    </mat-select>
+</mat-form-field>
+
+<div class="addItem">
+
+    <mat-form-field class="form-group cod">
+        <input matInput type="number" id="inputCod"
+            formControlName="cod" class="form-control" placeholder="cod" [min]="1">
+
+    </mat-form-field>
+    <mat-form-field class="form-group qtd">
+        <input matInput type="number" id="inputQtd" formControlName="qtd" class="form-control"
+            (keyup)="onQtd($event)" placeholder="qtd" [min]="1">
+
+    </mat-form-field>
+
+    <button mat-raised-button class="adicionar" color="primary">adicionar</button>
+
+    <!-- <mat-form-field class="form-group nome">
+         <mat-hint align="end">Valor unidade: <b class="valorUnidade">{{valorUnidade | currency: 'BRL'}}</b> X
+            {{valorQtd}} = <b class="valorTotal">{{valorTotal | currency: 'BRL'}}</b></mat-hint> 
+        <button mat-fab class="fab-bottom-item btAdd" type="submit" [disabled]="!formulario.valid">
+            <mat-icon>add</mat-icon>
+        </button>
+    </mat-form-field> -->
+
+</div>
+
+</form>

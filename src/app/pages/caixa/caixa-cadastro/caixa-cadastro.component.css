@@ -1,0 +1,17 @@
+mat-form-field.CR {
+    width: 100%;
+}
+
+mat-form-field.cod {
+    width: 67%;
+}
+
+mat-form-field.qtd {
+    width: 29%;
+}
+
+button.adicionar{
+    margin: 0 auto;
+    display: flex;
+    padding: 10px 61px;
+}

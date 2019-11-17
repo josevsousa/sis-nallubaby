@@ -1,0 +1,7 @@
+.global{
+    display: flex;
+}
+.form, .list {
+    padding: 12px;
+    width: 50%;
+}

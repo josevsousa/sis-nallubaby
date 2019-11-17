@@ -48,6 +48,8 @@ import { AuthGuard } from "./guards/auth.guard";
 import { ClientesComponent } from './pages/clientes-colaboradores/clientes/clientes.component';
 import { ColaboradoresComponent } from './pages/clientes-colaboradores/colaboradores/colaboradores.component';
 import { CadastroDialogComponent } from './pages/clientes-colaboradores/cadastro-dialog/cadastro-dialog.component';
+import { CaixaInicialComponent } from './pages/caixa/caixa-inicial/caixa-inicial.component';
+import { CaixaCadastroComponent } from './pages/caixa/caixa-cadastro/caixa-cadastro.component';
 
 
 @NgModule({
@@ -61,7 +63,9 @@ import { CadastroDialogComponent } from './pages/clientes-colaboradores/cadastro
     ProdutoDialogComponent,
     ClientesComponent,
     ColaboradoresComponent,
-    CadastroDialogComponent
+    CadastroDialogComponent,
+    CaixaInicialComponent,
+    CaixaCadastroComponent
   ],
   entryComponents: [
     ProdutoDialogComponent,
