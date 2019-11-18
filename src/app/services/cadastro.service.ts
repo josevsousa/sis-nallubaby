@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { AngularFirestore, AngularFirestoreCollection, CollectionReference } from 'angularfire2/firestore';
 import { Observable } from 'rxjs';
 import { Cadastro } from "../models/cadastro.model";
+import { ConsoleReporter } from 'jasmine';
 
 @Injectable({
   providedIn: 'root'
@@ -60,6 +61,29 @@ export class CadastroService {
 
   get(uid: string): Observable<Cadastro>{
     return this.cadastros.doc<Cadastro>(uid).valueChanges();
+  }
+
+
+  codigoVenda(){
+    var data = new Date();
+    var dia     = data.getDate();           // 1-31
+    var mes     = data.getMonth();           // 2 dígitos
+    var ano4    = data.getFullYear();       // 4 dígitos
+    var hora    = data.getHours();          // 0-23
+    var min     = data.getMinutes();        // 0-59
+    var seg     = data.getSeconds();        // 0-59
+    
+    var codigoExistente = localStorage.getItem("codigo");
+    if (codigoExistente != null) {
+      console.log("EXISTE");
+      return codigoExistente;
+    }else{
+      console.log("NAO EXSITE");
+      var newCodigo = data.getFullYear() + ":" + (data.getMonth()+1)  + ":" + data.getDate()  + ":" + data.getHours()  + ":"  + data.getMinutes()  + ":"  + data.getSeconds();
+      localStorage.setItem("codigo", newCodigo);
+      return newCodigo;
+    }
+    
   }
 
 }
