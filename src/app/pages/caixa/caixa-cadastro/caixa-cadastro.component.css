@@ -14,4 +14,21 @@ button.adicionar{
     margin: 0 auto;
     display: flex;
     padding: 10px 61px;
+    font-size: x-large;
+    margin-top: 29px;
+}
+
+
+.valorUnidade {
+  color: #062fab;
+}
+.valorTotal {
+  color: #0e8455;
+}
+mat-hint#mat-hint-0 {
+  font-size: larger;
+}
+
+.viewItemAtual {
+    float: right;
 }

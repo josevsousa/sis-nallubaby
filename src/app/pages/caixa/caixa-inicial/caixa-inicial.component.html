@@ -11,10 +11,13 @@
 <div class="global">
     <div class="form">
         <!-- formulario cadastro  -->
-        <app-caixa-cadastro></app-caixa-cadastro>
+        <app-caixa-cadastro (adicionado)="atualizar()"></app-caixa-cadastro>
     </div>
     <div class="list">
-        list
+        {{valorTotal | currency: 'BRL'}}
+        <ol>
+            <li *ngFor="let item of listaProdutos, let i = index">{{i}}  {{item.cod}} --- {{item.prod}}  --- {{item.valor}} X {{item.qtd}} = {{item.valor*item.qtd | currency: 'BRL'}}</li>
+        </ol>
     </div>
 </div>
 

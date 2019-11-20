@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import { AngularFirestore, AngularFirestoreCollection, CollectionReference } from 'angularfire2/firestore';
 import { Observable } from 'rxjs';
 import { Cadastro } from "../models/cadastro.model";
-import { ConsoleReporter } from 'jasmine';
 
 @Injectable({
   providedIn: 'root'
@@ -22,7 +21,6 @@ export class CadastroService {
       );
     }
 
-
   create(cadastro: Cadastro): Promise<void> {
     const uid = this.db.createId();
     return this.cadastros.doc<Cadastro>(uid)
@@ -34,7 +32,7 @@ export class CadastroService {
         celular: cadastro.celular,
         fixo: cadastro.fixo,
         email: cadastro.email,
-        rg: cadastro.rg,
+        rg: cadastro.rg,  
         cpf: cadastro.cpf,
         cnpj: cadastro.cnpj,
         insc: cadastro.insc,
@@ -53,7 +51,6 @@ export class CadastroService {
       .update(cadastro)
   }
 
-
   delete(cadastro: Cadastro): Promise<void>{
     return this.cadastros.doc<Cadastro>(cadastro.uid)
       .delete();
@@ -62,7 +59,6 @@ export class CadastroService {
   get(uid: string): Observable<Cadastro>{
     return this.cadastros.doc<Cadastro>(uid).valueChanges();
   }
-
 
   codigoVenda(){
     var data = new Date();

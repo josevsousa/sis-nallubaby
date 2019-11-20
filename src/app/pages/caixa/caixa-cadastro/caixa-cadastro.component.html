@@ -1,4 +1,4 @@
-<form class="example-form" [formGroup]="formulario" (ngSubmit)="ngSubmit()">
+
 <mat-form-field class="CR">
     <mat-label>Cliente</mat-label>
     <mat-select  [(value)]="selectCliente" required (selectionChange)="onSelectCliente()" >
@@ -24,29 +24,32 @@
     </mat-select>
 </mat-form-field>
 
-<div class="addItem">
 
-    <mat-form-field class="form-group cod">
-        <input matInput type="number" id="inputCod"
-            formControlName="cod" class="form-control" placeholder="cod" [min]="1">
-
-    </mat-form-field>
-    <mat-form-field class="form-group qtd">
-        <input matInput type="number" id="inputQtd" formControlName="qtd" class="form-control"
+<form class="example-form" [formGroup]="formulario" (ngSubmit)="ngSubmit()">
+    <div class="addItem">
+        <mat-form-field class="form-group cod">
+            <input matInput type="number" id="inputCod"
+            (change)="codigoEvent($event)" formControlName="cod" class="form-control" placeholder="cod" [min]="1">
+        </mat-form-field>
+        <mat-form-field class="form-group qtd">
+            <input matInput type="number" id="inputQtd" formControlName="qtd" class="form-control"
             (keyup)="onQtd($event)" placeholder="qtd" [min]="1">
 
-    </mat-form-field>
+        </mat-form-field>
 
-    <button mat-raised-button class="adicionar" color="primary">adicionar</button>
+        <div class="viewItemAtual">{{nomeProduto}} <b class="valorUnidade">{{valorUnidade | currency: 'BRL'}}</b> x
+            {{valorQtd}} = <b class="valorTotal">{{valorTotal | currency: 'BRL'}}</b>
+        </div>
 
-    <!-- <mat-form-field class="form-group nome">
-         <mat-hint align="end">Valor unidade: <b class="valorUnidade">{{valorUnidade | currency: 'BRL'}}</b> X
-            {{valorQtd}} = <b class="valorTotal">{{valorTotal | currency: 'BRL'}}</b></mat-hint> 
-        <button mat-fab class="fab-bottom-item btAdd" type="submit" [disabled]="!formulario.valid">
-            <mat-icon>add</mat-icon>
-        </button>
-    </mat-form-field> -->
+        <button mat-raised-button class="adicionar" color="primary" [disabled]="!formulario.valid">adicionar</button>
 
-</div>
+        <!-- <mat-form-field class="form-group nome">
+            <mat-hint align="end">Valor unidade: <b class="valorUnidade">{{valorUnidade | currency: 'BRL'}}</b> X
+                {{valorQtd}} = <b class="valorTotal">{{valorTotal | currency: 'BRL'}}</b></mat-hint> 
+            <button mat-fab class="fab-bottom-item btAdd" type="submit" [disabled]="!formulario.valid">
+                <mat-icon>add</mat-icon>
+            </button>
+        </mat-form-field> -->
 
+    </div>
 </form>

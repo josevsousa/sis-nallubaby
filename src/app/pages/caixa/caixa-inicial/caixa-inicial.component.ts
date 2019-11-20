@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
+import { FomrCadastroService } from "../../../services/fomr-cadastro.service";
 import { CadastroService } from "../../../services/cadastro.service";
 
 @Component({
@@ -9,16 +10,25 @@ import { CadastroService } from "../../../services/cadastro.service";
 })
 export class CaixaInicialComponent implements OnInit {
 
+  listaProdutos: Array<any>;
+  valorTotal: number;
+
   codigo: string;
 
   constructor(
+    private formCadastroService: FomrCadastroService,
     private cadastroService: CadastroService
   ) { }
 
-  ngOnInit() {
+  ngOnInit(){
+    this.atualizar();
     this.codigo = this.cadastroService.codigoVenda();
   }
 
+  atualizar(){
+    this.listaProdutos = this.formCadastroService.getProdutos();
+    this.valorTotal = this.formCadastroService.valorTotal();
+  }
 
 
 }
