@@ -14,10 +14,10 @@
         <app-caixa-cadastro (adicionado)="atualizar()"></app-caixa-cadastro>
     </div>
     <div class="list">
-        {{valorTotal | currency: 'BRL'}}
-        <ol>
+        <div class="view-valor-total">{{valorTotal | currency: 'BRL'}}</div>
+        <ul class="lista-produtos">
             <li *ngFor="let item of listaProdutos, let i = index">{{i}}  {{item.cod}} --- {{item.prod}}  --- {{item.valor}} X {{item.qtd}} = {{item.valor*item.qtd | currency: 'BRL'}}</li>
-        </ol>
+        </ul>
     </div>
 </div>
 

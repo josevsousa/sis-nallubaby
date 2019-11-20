@@ -3,8 +3,26 @@
 }
 .form, .list {
     padding: 12px;
-    width: 50%;
+    width: 35%;
 }
 
+
+/* LISTA DE INTENS PRODUTO */
+.list {
+    padding: 12px;
+    width: 65%;
+}
+ul.lista-produtos {
+    list-style: none;
+    padding: 5px;
+}
+ul.lista-produtos li {
+    padding: 6px 9px;
+    border: 1px solid #ececec;
+}
+.view-valor-total {
+    padding: 6px 9px;
+}
+/* FIM DA LISTA DE INTENS PRODUTO */
 
 
