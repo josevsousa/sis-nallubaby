@@ -7,7 +7,6 @@
     </div>
 </div>
 <br>
-
 <div class="global">
     <div class="form">
         <!-- formulario cadastro  -->
@@ -16,10 +15,19 @@
     <div class="list">
         <div class="view-valor-total">{{valorTotal | currency: 'BRL'}}</div>
         <ul class="lista-produtos">
-            <li *ngFor="let item of listaProdutos, let i = index">{{i}}  {{item.cod}} --- {{item.prod}}  --- {{item.valor}} X {{item.qtd}} = {{item.valor*item.qtd | currency: 'BRL'}}</li>
+            <li class="headerList">
+                    <div class="codigo">cod</div>
+                    <div class="nomeProdutoHeader">produto</div>
+                    <div class="qtd">qtd</div>
+                    <div class="valor">valor</div>
+                    <div class="total">Total</div>
+                    <div class="btDelete"></div>
+            </li>
+            <li  *ngFor="let item of listaProdutos, let i = index">
+                <!-- component item -->
+                <app-li-item [index]="i" [item]="item" (deletado)="atualizar()"></app-li-item>
+            </li>
         </ul>
     </div>
 </div>
 
-
-<!-- list do itens -->

@@ -26,6 +26,7 @@ export class CaixaInicialComponent implements OnInit {
   }
 
   atualizar(){
+    console.log("alualização chamada!");
     this.listaProdutos = this.formCadastroService.getProdutos();
     this.valorTotal = this.formCadastroService.valorTotal();
   }

@@ -20,9 +20,22 @@ ul.lista-produtos li {
     padding: 6px 9px;
     border: 1px solid #ececec;
 }
+li.headerList {
+    display: flex;
+}
+li.headerList div {
+    text-align: center;
+}
 .view-valor-total {
     padding: 6px 9px;
 }
+.index{
+    display: none;
+}
+
+.nomeProdutoHeader {
+    width: 74%;
+}  
 /* FIM DA LISTA DE INTENS PRODUTO */
 
 

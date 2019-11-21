@@ -1,0 +1,14 @@
+<div class="viewItem">
+    <!-- <div class="index">{{i}}</div> -->
+    <div class="codigo">{{item.cod}}</div>
+    <div class="nomeProduto">{{item.prod}}</div>
+    <div class="qtd">
+        <input mat-input type="number" [(value)]="item.qtd" min="1" (change)="newQtd($event.target.value)">
+        <!-- {{item.qtd}} -->
+    </div>
+    <div class="valor">{{item.valor | currency: 'BRL'}}</div>
+    <div class="total">{{total | currency: 'BRL'}}</div>
+    <a class="delete" (click)="ngDelete()">
+        <mat-icon>delete</mat-icon>
+    </a>
+</div>

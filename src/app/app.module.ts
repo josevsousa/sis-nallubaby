@@ -50,6 +50,7 @@ import { ColaboradoresComponent } from './pages/clientes-colaboradores/colaborad
 import { CadastroDialogComponent } from './pages/clientes-colaboradores/cadastro-dialog/cadastro-dialog.component';
 import { CaixaInicialComponent } from './pages/caixa/caixa-inicial/caixa-inicial.component';
 import { CaixaCadastroComponent } from './pages/caixa/caixa-cadastro/caixa-cadastro.component';
+import { LiItemComponent } from './pages/caixa/components/li-item/li-item.component';
 
 
 @NgModule({
@@ -65,7 +66,8 @@ import { CaixaCadastroComponent } from './pages/caixa/caixa-cadastro/caixa-cadas
     ColaboradoresComponent,
     CadastroDialogComponent,
     CaixaInicialComponent,
-    CaixaCadastroComponent
+    CaixaCadastroComponent,
+    LiItemComponent
   ],
   entryComponents: [
     ProdutoDialogComponent,

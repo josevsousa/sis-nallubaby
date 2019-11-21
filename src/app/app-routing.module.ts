@@ -10,6 +10,21 @@ import { CaixaInicialComponent } from "./pages/caixa/caixa-inicial/caixa-inicial
 
 import { AuthGuard } from "./guards/auth.guard";
 
+// const routes: Routes = [
+//   {
+//     path: '',
+//     loadChildren: () => import('../app/inicio/inicio.component').then(m => m.InicioComponent) 
+//   },
+//   {
+//     path: '',
+//     loadChildren: () => import('../app/login/login.component').then(m => m.LoginComponent) 
+//   },
+//   {
+//     path: '',
+//     loadChildren: () => import('../app/pages/produtos/produtos-lista/produtos-lista.component').then(m => m.ProdutosListaComponent) 
+//   }
+
+// ]
 
 const routes: Routes = [
   { path: 'login',  component: LoginComponent},

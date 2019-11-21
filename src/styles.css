@@ -89,3 +89,23 @@ mat-form-field {
     margin-right: 5px;
 }
 
+
+
+.qtd {
+    width: 10%;
+}
+.codigo {
+    width: 10%;
+}
+.valor{
+    width: 27%;
+    padding-left: 15px;
+}
+.nomeProduto {
+    width: 87%;
+}
+.total{
+    width: 29%;
+}
+
+

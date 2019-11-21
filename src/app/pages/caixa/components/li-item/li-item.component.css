@@ -1,0 +1,18 @@
+
+.viewItem{
+    display: flex;
+}
+
+a.delete {
+    height: 20px;
+    cursor: pointer;
+}
+
+mat-icon{
+    font-size: larger;
+}
+
+.qtd>   input {
+    width: 36px;
+    border: none;
+}

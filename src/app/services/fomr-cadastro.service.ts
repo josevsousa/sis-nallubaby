@@ -23,27 +23,28 @@ export class FomrCadastroService {
     }
   }
 
-  addProduto(produto){
+  addProduto(produto): void{
     console.log("----------- adicionando um produto a lista ------------------------");
-    console.log(produto);
     let listaProdutos = JSON.parse(localStorage.getItem('listaProdutos'));
     listaProdutos.push(produto);
     localStorage.setItem('listaProdutos', JSON.stringify(listaProdutos ));
     //   this.listaProdutos = null;
   }
-  newProduto(produto){
+  newProduto(produto): void{
     console.log("----------- criando uma lista com o novo produto ------------------------");
-    console.log(produto);
-
-    //   // criar lista
+    // criar lista
     localStorage.setItem('listaProdutos', ("["+JSON.stringify(produto)+"]"));   
-    //   console.log("lista criada")
+  }
+
+  delProduto(index): void{
+    console.log("Deletar esse item: " + index);
+    
+    return JSON.parse(localStorage.getItem('listaProdutos')); 
   }
 
   valorTotal(){
     let total = 0;
     let listaProdutos = JSON.parse(localStorage.getItem('listaProdutos'));
-    console.log(listaProdutos+"00000000000");
     listaProdutos.forEach((item)=>{
       total += (item.valor * item.qtd)
     });
