@@ -26,8 +26,17 @@ export class CaixaInicialComponent implements OnInit {
   }
 
   atualizar(): void{
+    // pega a lista e o valot total atual do localStorage
     this.listaProdutos = this.formCadastroService.getProdutos();
     this.valorTotal = this.formCadastroService.valorTotal();
+  }
+
+  liZebra(i){
+    if(i % 2 == 0){
+        return {'listZebra': true}
+    }else{
+      return {'listZebra':false}
+    }
   }
 
 

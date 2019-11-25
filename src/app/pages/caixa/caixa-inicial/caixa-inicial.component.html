@@ -23,9 +23,9 @@
                     <div class="total">Total</div>
                     <div class="btDelete"></div>
             </li>
-            <li  *ngFor="let item of listaProdutos, let i = index">
+            <li  *ngFor="let item of listaProdutos, let i = index"  [ngClass]="liZebra(i)">
                 <!-- component item -->
-                <app-li-item [index]="i" [item]="item" (deleteUpdate)="atualizar()" ></app-li-item>
+                <app-li-item [index]="i" [item]="item" (deleteUpdate)="atualizar()"></app-li-item>
             </li>
         </ul>
     </div>
