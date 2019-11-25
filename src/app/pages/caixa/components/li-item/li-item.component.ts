@@ -11,8 +11,8 @@ import { FomrCadastroService } from "../../../../services/fomr-cadastro.service"
 })
 export class LiItemComponent implements OnInit {
 
-  @Output() deletado: EventEmitter<any> = new EventEmitter();
-
+  @Output() deleteUpdate: EventEmitter<any> = new EventEmitter();
+  
   @Input() index: string;
   @Input() item: Object;
   
@@ -27,17 +27,23 @@ export class LiItemComponent implements OnInit {
   }
 
   ngDelete(){
+    console.log(this.index);
     //deletar item da lista
     this.formCadastroService.delProduto(this.index);
     // atualizar o localStorage da view do Component Pai
-    this.deletado.emit();
+    this.deleteUpdate.emit();
   }
 
   newQtd(e){
-    // atualizar total
+    // atualizar total item
     this.total = (e * this.item['valor'] );
 
-    //gravar novos dados no storage
+    // atualziar nova qtd no localStorage
+    this.formCadastroService.updateProduto(this.index, e);
+
+    // atualizar fullTotal
+    this.deleteUpdate.emit();
+
     
   }
 

@@ -37,9 +37,29 @@ export class FomrCadastroService {
   }
 
   delProduto(index): void{
-    console.log("Deletar esse item: " + index);
+    //baixar lista para uma nova lista
+    let newList = JSON.parse(localStorage.getItem('listaProdutos'));
+    // deleta item da nova lista
+    newList.splice(index, 1);
     
-    return JSON.parse(localStorage.getItem('listaProdutos')); 
+    localStorage.removeItem('listaProdutos');
+    // adiciona a nova lista ao locaStorage
+    localStorage.setItem('listaProdutos', JSON.stringify(newList));
+  }
+
+  updateProduto(index, newQtd){
+    // baixar lista para uma nova lista
+    let newList = JSON.parse(localStorage.getItem('listaProdutos'));
+    // baixar item da newList
+    let item = newList[index];
+    // atualizado 
+    item['qtd'] = parseInt(newQtd);
+    // subistituir novo item na newList
+    newList.splice(index, 1, item );
+    // remove item do localStorage
+    localStorage.removeItem('listaProdutos');
+    // adiciona a nova lista ao locaStorage
+    localStorage.setItem('listaProdutos', JSON.stringify(newList));
   }
 
   valorTotal(){
@@ -50,4 +70,5 @@ export class FomrCadastroService {
     });
     return total
   }
+
 }
