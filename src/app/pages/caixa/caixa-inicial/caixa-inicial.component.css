@@ -46,7 +46,7 @@ li.headerList div {
     width: 22%;
 }
 .parcelas {
-    width: 75%;
+    width: 30%;
 }
 .valorTotalColor{
     color: #30b4b1;
@@ -57,4 +57,7 @@ li.headerList div {
 span.valorTotal {
     font-weight: bolder;
     font-size: 1.16em;
+}
+button.mat-flat-button {
+    margin-left: 15px;
 }

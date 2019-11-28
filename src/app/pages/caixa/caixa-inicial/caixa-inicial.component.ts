@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from "@angular/router";
 
 import { PedidoService } from "../../../services/pedido.service";
 import { CadastroService } from "../../../services/cadastro.service";
@@ -18,6 +19,7 @@ export class CaixaInicialComponent implements OnInit {
   codigo: string;
 
   constructor(
+    private router: Router,
     private pedidoService: PedidoService,
     private cadastroService: CadastroService
   ) { }
@@ -44,6 +46,17 @@ export class CaixaInicialComponent implements OnInit {
     this.atualizar();
   }
 
+  deletePedido(){
+    if(confirm("Tem certeza que deseja deletar esse pedido?")){
+      localStorage.clear();
+      this.router.navigate(['/inicio']);
+    }
+  }
+
+  finalizarPedido(){
+    console.warn("enviar pedido para o firebase");
+  }
+  
   liZebra(i){
     if(i % 2 == 0){
         return {'listZebra': true}
@@ -51,6 +64,5 @@ export class CaixaInicialComponent implements OnInit {
       return {'listZebra':false}
     }
   }
-
 
 }

@@ -29,6 +29,8 @@
                     <!-- </optgroup> -->
                 </select>
             </mat-form-field>
+            <button mat-flat-button color="primary" (click)="finalizarPedido()">Finalizar Pedido</button>
+            <button mat-flat-button color="warn" (click)="deletePedido()">Excluir Pedido</button>
             <div class="valorTotal">
                 <span class="valorTotal valorTotalColor">Total: {{valorTotal | currency: 'BRL'}}</span> <span *ngIf="desconto">- Desconto: {{desconto | currency: 'BRL'}} = SubTotal: <span class="valorTotal valorSubTotalColor">{{valorTotalDesconto | currency: 'BRL'}}</span> </span>
             </div>
