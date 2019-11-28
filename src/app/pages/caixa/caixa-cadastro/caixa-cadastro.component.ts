@@ -10,7 +10,7 @@ import { ProdutosService } from "../../../services/produtos.service";
 
 import { Validators, FormGroup, FormBuilder } from '@angular/forms';
 
-import { FomrCadastroService } from "../../../services/fomr-cadastro.service";
+import { PedidoService } from "../../../services/pedido.service";
 
 @Component({
   selector: 'app-caixa-cadastro',
@@ -40,7 +40,7 @@ export class CaixaCadastroComponent implements OnInit {
 
   constructor(
     private formBuild: FormBuilder,
-    private formCadastroService: FomrCadastroService,
+    private pedidoService: PedidoService,
     private cadastroService: CadastroService,
     private produtosService: ProdutosService,
     private renderer: Renderer2,
@@ -77,7 +77,7 @@ export class CaixaCadastroComponent implements OnInit {
   ngSubmit(){
     this.mutiplicarTotal(false);
     // add no storage
-    this.formCadastroService.setProduto(this.formulario.value);
+    this.pedidoService.setProduto(this.formulario.value);
     this.formulario.reset();
     this.renderer.selectRootElement("#inputCod").focus();
     this.adicionado.emit(null);

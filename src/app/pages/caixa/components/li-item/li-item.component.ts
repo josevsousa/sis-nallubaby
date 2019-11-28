@@ -1,6 +1,6 @@
 import { Component, Input, Output, OnInit, EventEmitter } from '@angular/core';
 
-import { FomrCadastroService } from "../../../../services/fomr-cadastro.service";
+import { PedidoService } from "../../../../services/pedido.service";
 
 // import { emit } from 'cluster';
 
@@ -19,7 +19,7 @@ export class LiItemComponent implements OnInit {
   total: number;
 
   constructor(
-    private formCadastroService: FomrCadastroService
+    private pedidoService: PedidoService
   ) { }
 
   ngOnInit(){
@@ -29,7 +29,7 @@ export class LiItemComponent implements OnInit {
   ngDelete(){
     console.log(this.index);
     //deletar item da lista
-    this.formCadastroService.delProduto(this.index);
+    this.pedidoService.delProduto(this.index);
     // atualizar o localStorage da view do Component Pai
     this.deleteUpdate.emit();
   }
@@ -39,7 +39,7 @@ export class LiItemComponent implements OnInit {
     this.total = (valorQtd * this.item['valor'] );
 
     // atualziar nova qtd no localStorage
-    this.formCadastroService.updateProduto(this.index, valorQtd);
+    this.pedidoService.updateProduto(this.index, valorQtd);
 
     // atualizar fullTotal
     this.deleteUpdate.emit();

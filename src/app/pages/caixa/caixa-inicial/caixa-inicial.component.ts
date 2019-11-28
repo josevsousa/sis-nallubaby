@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import { FomrCadastroService } from "../../../services/fomr-cadastro.service";
+import { PedidoService } from "../../../services/pedido.service";
 import { CadastroService } from "../../../services/cadastro.service";
 
 @Component({
@@ -18,7 +18,7 @@ export class CaixaInicialComponent implements OnInit {
   codigo: string;
 
   constructor(
-    private formCadastroService: FomrCadastroService,
+    private pedidoService: PedidoService,
     private cadastroService: CadastroService
   ) { }
 
@@ -33,8 +33,8 @@ export class CaixaInicialComponent implements OnInit {
 
   atualizar(): void{
     // pega a lista e o valot total atual do localStorage
-    this.listaProdutos = this.formCadastroService.getProdutos();
-    this.valorTotal = (this.formCadastroService.valorTotal());
+    this.listaProdutos = this.pedidoService.getProdutos();
+    this.valorTotal = (this.pedidoService.valorTotal());
     this.valorTotalDesconto = (this.valorTotal - this.desconto);
   }
 

@@ -4,7 +4,7 @@ import { Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
-export class FomrCadastroService {
+export class PedidoService {
 
   getProdutos(){
     let listaProdutos = localStorage.getItem('listaProdutos');

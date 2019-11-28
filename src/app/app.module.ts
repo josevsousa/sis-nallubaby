@@ -37,6 +37,7 @@ import {
 } from "@angular/material";
 
 import { CadastroService } from "./services/cadastro.service";
+import { PedidoService } from "./services/pedido.service";
 
 import { ProdutosListaComponent } from './pages/produtos/produtos-lista/produtos-lista.component';
 import { ProdutoDialogComponent } from './pages/produtos/produto-dialog/produto-dialog.component';
@@ -102,7 +103,8 @@ import { LiItemComponent } from './pages/caixa/components/li-item/li-item.compon
     AuthService,
     AuthGuard,
     ProdutosService,
-    CadastroService
+    CadastroService,
+    PedidoService
   ],
   bootstrap: [AppComponent]
 })
