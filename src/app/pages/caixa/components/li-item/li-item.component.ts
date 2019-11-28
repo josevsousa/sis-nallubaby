@@ -34,17 +34,16 @@ export class LiItemComponent implements OnInit {
     this.deleteUpdate.emit();
   }
 
-  newQtd(e){
+  newQtd(valorQtd){
     // atualizar total item
-    this.total = (e * this.item['valor'] );
+    this.total = (valorQtd * this.item['valor'] );
 
     // atualziar nova qtd no localStorage
-    this.formCadastroService.updateProduto(this.index, e);
+    this.formCadastroService.updateProduto(this.index, valorQtd);
 
     // atualizar fullTotal
     this.deleteUpdate.emit();
 
-    
   }
 
 }

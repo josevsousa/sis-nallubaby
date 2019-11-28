@@ -11,11 +11,11 @@ export class ProdutosService {
   // tabela de produtos do firebase
   produtos: AngularFirestoreCollection<Produto>;
 
-  constructor(
-    private db: AngularFirestore
-  ) {
-    this.setProdutos();
-  }
+    constructor(
+      private db: AngularFirestore
+    ) {
+      this.setProdutos();
+    }
 
     // iniciando tipo o OnInit dos components nesse caso carregando o objeto produtos  
     private setProdutos(): void{

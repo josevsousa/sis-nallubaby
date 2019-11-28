@@ -68,6 +68,11 @@ export class FomrCadastroService {
     listaProdutos.forEach((item)=>{
       total += (item.valor * item.qtd)
     });
+
+    // if(localStorage.getItem('desconto')){
+    //   total -= parseFloat(localStorage.getItem('desconto'));
+    // }
+
     return total
   }
 

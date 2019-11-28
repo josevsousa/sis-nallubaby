@@ -26,7 +26,7 @@ li.headerList {
 li.headerList div {
     text-align: center;
 }
-.view-valor-total {
+.view-display h3 {
     padding: 6px 9px;
 }
 .index{
@@ -42,3 +42,19 @@ li.headerList div {
 /* FIM DA LISTA DE INTENS PRODUTO */
 
 
+.desconto {
+    width: 22%;
+}
+.parcelas {
+    width: 75%;
+}
+.valorTotalColor{
+    color: #30b4b1;
+}
+.valorSubTotalColor{
+    color: #0bc186;
+}
+span.valorTotal {
+    font-weight: bolder;
+    font-size: 1.16em;
+}

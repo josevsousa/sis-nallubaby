@@ -12,6 +12,8 @@ export class CaixaInicialComponent implements OnInit {
 
   listaProdutos: Array<any>;
   valorTotal: number;
+  desconto: number = 0;
+  valorTotalDesconto: number = 0;
 
   codigo: string;
 
@@ -20,15 +22,26 @@ export class CaixaInicialComponent implements OnInit {
     private cadastroService: CadastroService
   ) { }
 
-  ngOnInit(){
-    this.atualizar();
+  ngOnInit(){  
     this.codigo = this.cadastroService.codigoVenda();
+    this.atualizar();
+    if(localStorage.getItem('desconto')){
+      this.desconto = parseFloat(localStorage.getItem('desconto'));
+      this.valorTotalDesconto = (this.valorTotal - this.desconto);
+    }
   }
 
   atualizar(): void{
     // pega a lista e o valot total atual do localStorage
     this.listaProdutos = this.formCadastroService.getProdutos();
-    this.valorTotal = this.formCadastroService.valorTotal();
+    this.valorTotal = (this.formCadastroService.valorTotal());
+    this.valorTotalDesconto = (this.valorTotal - this.desconto);
+  }
+
+  addDesconto(val){
+    localStorage.setItem('desconto', val);
+    this.desconto = val;
+    this.atualizar();
   }
 
   liZebra(i){

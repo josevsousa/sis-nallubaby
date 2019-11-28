@@ -13,21 +13,40 @@
         <app-caixa-cadastro (adicionado)="atualizar()"></app-caixa-cadastro>
     </div>
     <div class="list">
-        <div class="view-valor-total">{{valorTotal | currency: 'BRL'}}</div>
+        <div class="view-display">
+            <mat-form-field class="example-full-width desconto">
+                <input matInput type="number" placeholder="Desconto" [min]="0" [value]="desconto" (blur)="addDesconto($event.target.value)">
+            </mat-form-field>
+            <mat-form-field class="parcelas">
+                <mat-label>Tipo de pagamento</mat-label>
+                <select matNativeControl>
+                    <option value="avista">A vista</option>
+                    <!-- <optgroup label="Cheques"> -->
+                    <option value="cheque2">Cheque 2X</option>
+                    <option value="cheque3">Cheque 3X</option>
+                    <option value="cheque4">Cheque 4X</option>
+                    <option value="cheque5">Cheque 5X</option>
+                    <!-- </optgroup> -->
+                </select>
+            </mat-form-field>
+            <div class="valorTotal">
+                <span class="valorTotal valorTotalColor">Total: {{valorTotal | currency: 'BRL'}}</span> <span *ngIf="desconto">- Desconto: {{desconto | currency: 'BRL'}} = SubTotal: <span class="valorTotal valorSubTotalColor">{{valorTotalDesconto | currency: 'BRL'}}</span> </span>
+            </div>
+        </div>
         <ul class="lista-produtos">
             <li class="headerList">
-                    <div class="codigo">cod</div>
-                    <div class="nomeProdutoHeader">produto</div>
-                    <div class="qtd">qtd</div>
-                    <div class="valor">valor</div>
-                    <div class="total">Total</div>
-                    <div class="btDelete"></div>
+                <div class="codigo">cod</div>
+                <div class="nomeProdutoHeader">produto</div>
+                <div class="qtd">qtd</div>
+                <div class="valor">valor</div>
+                <div class="total">Total</div>
+                <div class="btDelete"></div>
             </li>
-            <li  *ngFor="let item of listaProdutos, let i = index"  [ngClass]="liZebra(i)">
+            <li *ngFor="let item of listaProdutos, let i = index" [ngClass]="liZebra(i)">
                 <!-- component item -->
                 <app-li-item [index]="i" [item]="item" (deleteUpdate)="atualizar()"></app-li-item>
             </li>
+           
         </ul>
     </div>
 </div>
-
