@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from "@angular/router";
+import { Pedido } from "../../../models/pedido.models";
 
 import { PedidoService } from "../../../services/pedido.service";
 import { CadastroService } from "../../../services/cadastro.service";
+import { PedidosService } from "../../../services/pedidos.service";
 
 @Component({
   selector: 'app-caixa-inicial',
@@ -15,22 +17,38 @@ export class CaixaInicialComponent implements OnInit {
   valorTotal: number;
   desconto: number = 0;
   valorTotalDesconto: number = 0;
+  tipoPagamento: string;
 
   codigo: string;
+
+  pedido: Pedido = {
+    codigo: '',
+    cliente: '',
+    representante: '',
+    desconto: null,
+    tipoPagamento: '',
+    listaProdutos: ''
+  };
 
   constructor(
     private router: Router,
     private pedidoService: PedidoService,
-    private cadastroService: CadastroService
+    private cadastroService: CadastroService,
+    private pedidosService: PedidosService
   ) { }
 
   ngOnInit(){  
     this.codigo = this.cadastroService.codigoVenda();
+    this.tipoPagamento = localStorage.getItem('tipoPagamento');
     this.atualizar();
     if(localStorage.getItem('desconto')){
       this.desconto = parseFloat(localStorage.getItem('desconto'));
       this.valorTotalDesconto = (this.valorTotal - this.desconto);
     }
+  }
+
+  onSelectTipoPagamento(){
+    localStorage.setItem('tipoPagamento', this.tipoPagamento);
   }
 
   atualizar(): void{
@@ -54,7 +72,23 @@ export class CaixaInicialComponent implements OnInit {
   }
 
   finalizarPedido(){
-    console.warn("enviar pedido para o firebase");
+    if(this.validandoBotaoEnviar()){
+        this.pedido = {
+          codigo: localStorage.getItem('codigo'),
+          cliente: localStorage.getItem('cliente'),
+          representante: localStorage.getItem('representante'),
+          desconto: parseFloat(localStorage.getItem('desconto')),
+          tipoPagamento: localStorage.getItem('tipoPagamento'),
+          listaProdutos: this.listaProdutos
+        };
+
+        //enviar ao firebase
+        this.pedidosService.create(this.pedido)
+          .then(()=>{
+            localStorage.clear();
+            this.router.navigate(['/inicio']);
+        });
+     }
   }
   
   liZebra(i){
@@ -63,6 +97,32 @@ export class CaixaInicialComponent implements OnInit {
     }else{
       return {'listZebra':false}
     }
+  }
+
+  validandoBotaoEnviar(){ 
+    let btEnviar = true
+    let campos = [
+      { nome: 'Tipo Pagamento', valor: localStorage.getItem('tipoPagamento')},
+      { nome: 'Representante', valor: localStorage.getItem('representante')},
+      { nome: 'Cliente', valor: localStorage.getItem('cliente')},
+      { nome: 'Produtos na lista', valor: localStorage.getItem('listaProdutos')}
+    ]
+    let msg = "Campos obrigatorios : ";
+    campos.forEach((item)=>{
+      if(item.valor == null){
+        btEnviar = false;
+        msg += (`[ ${item.nome} ] `);
+
+      }
+    });
+
+    if(!btEnviar){
+      alert(msg);
+    }else{
+      btEnviar = true;
+    }
+    
+    return btEnviar;
   }
 
 }

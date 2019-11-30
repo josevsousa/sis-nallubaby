@@ -1,5 +1,5 @@
 
-<mat-form-field class="CR">
+<mat-form-field class="CR" id="cliente">
     <mat-label>Cliente</mat-label>
     <mat-select  [(value)]="selectCliente" required (selectionChange)="onSelectCliente()" >
         <ng-container *ngFor="let cadastro of cadastro$ | async">
@@ -11,7 +11,7 @@
         </ng-container>
     </mat-select>
 </mat-form-field>
-<mat-form-field class="CR">
+<mat-form-field class="CR" id="representante">
     <mat-label>Representante</mat-label>
     <mat-select [(value)]="selectRepresentante" required (selectionChange)="onSelectRepresentante()">
         <!-- (selectionChange)="onChange($event.value)" -->

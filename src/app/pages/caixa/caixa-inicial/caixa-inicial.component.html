@@ -17,19 +17,19 @@
             <mat-form-field class="example-full-width desconto">
                 <input matInput type="number" placeholder="Desconto" [min]="0" [value]="desconto" (blur)="addDesconto($event.target.value)">
             </mat-form-field>
-            <mat-form-field class="parcelas">
+            <mat-form-field class="parcelas" id="tipoPagamento">
                 <mat-label>Tipo de pagamento</mat-label>
-                <select matNativeControl>
-                    <option value="avista">A vista</option>
+                <mat-select matNativeControl [(value)]="tipoPagamento" require (selectionChange)="onSelectTipoPagamento()">
+                    <mat-option value="avista">A vista</mat-option>
                     <!-- <optgroup label="Cheques"> -->
-                    <option value="cheque2">Cheque 2X</option>
-                    <option value="cheque3">Cheque 3X</option>
-                    <option value="cheque4">Cheque 4X</option>
-                    <option value="cheque5">Cheque 5X</option>
+                    <mat-option value="cheque2">Cheque 2X</mat-option>
+                    <mat-option value="cheque3">Cheque 3X</mat-option>
+                    <mat-option value="cheque4">Cheque 4X</mat-option>
+                    <mat-option value="cheque5">Cheque 5X</mat-option>
                     <!-- </optgroup> -->
-                </select>
+                </mat-select>
             </mat-form-field>
-            <button mat-flat-button color="primary" (click)="finalizarPedido()">Finalizar Pedido</button>
+            <button mat-flat-button color="primary" (click)="finalizarPedido()" >Finalizar Pedido</button>
             <button mat-flat-button color="warn" (click)="deletePedido()">Excluir Pedido</button>
             <div class="valorTotal">
                 <span class="valorTotal valorTotalColor">Total: {{valorTotal | currency: 'BRL'}}</span> <span *ngIf="desconto">- Desconto: {{desconto | currency: 'BRL'}} = SubTotal: <span class="valorTotal valorSubTotalColor">{{valorTotalDesconto | currency: 'BRL'}}</span> </span>

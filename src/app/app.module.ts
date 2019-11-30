@@ -38,6 +38,7 @@ import {
 
 import { CadastroService } from "./services/cadastro.service";
 import { PedidoService } from "./services/pedido.service";
+import { PedidosService } from "./services/pedidos.service";
 
 import { ProdutosListaComponent } from './pages/produtos/produtos-lista/produtos-lista.component';
 import { ProdutoDialogComponent } from './pages/produtos/produto-dialog/produto-dialog.component';
@@ -104,7 +105,8 @@ import { LiItemComponent } from './pages/caixa/components/li-item/li-item.compon
     AuthGuard,
     ProdutosService,
     CadastroService,
-    PedidoService
+    PedidoService,
+    PedidosService
   ],
   bootstrap: [AppComponent]
 })
