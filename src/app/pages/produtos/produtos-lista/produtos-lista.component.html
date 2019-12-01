@@ -41,7 +41,6 @@
             <mat-icon>edit</mat-icon>
             <span>Editar</span>
           </button>
-
           <button mat-menu-item (click)="onDelete(produto)">
             <mat-icon>delete</mat-icon>
             <span>Remove</span>
@@ -54,6 +53,5 @@
     <td>{{produto.nome}}</td>
     <td>{{produto.valor | currency: 'BRL'}}</td>
     <td>{{produto.descricao}}</td>
-
   </tr>
 </table>

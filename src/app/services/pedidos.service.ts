@@ -2,6 +2,8 @@ import { Injectable } from '@angular/core';
 import { Pedido } from "../models/pedido.models";
 import { AngularFirestore, AngularFirestoreCollection, CollectionReference } from "angularfire2/firestore";
 import { Observable } from "rxjs";
+import { query } from '@angular/animations';
+import { isString } from 'util';
 
 @Injectable({
   providedIn: 'root'
@@ -16,9 +18,10 @@ export class PedidosService {
     this.setPedidos();
   }
 
+
   private setPedidos(): void{
     this.pedidos = this.db.collection<Pedido>('/pedidos',
-      (ref: CollectionReference) => ref.orderBy('codigo','asc')
+      (ref: CollectionReference) => ref.orderBy('dataCreate','desc')
     );
   }
 
@@ -32,13 +35,19 @@ export class PedidosService {
         desconto: pedido.desconto,
         representante: pedido.representante,
         tipoPagamento: pedido.tipoPagamento,
-        listaProdutos: pedido.listaProdutos
+        listaProdutos: pedido.listaProdutos,
+        dataCreate: pedido.dataCreate
       });
   }
 
   delete(pedido: Pedido): Promise<void>{
     return this.pedidos.doc<Pedido>(pedido.uid)
       .delete();
+  }
+
+  update(pedido: Pedido): Promise<void>{
+    return this.pedidos.doc<Pedido>(pedido.uid)
+      .update(pedido);
   }
 
   get(uid: string): Observable<Pedido>{

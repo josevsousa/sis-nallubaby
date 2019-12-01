@@ -3,7 +3,8 @@ export interface Pedido{
     codigo: string;
     cliente: string;
     representante: string;
-    desconto: number;
+    desconto: string;
     tipoPagamento: string;
     listaProdutos: any;
+    dataCreate: Date
 }

@@ -53,6 +53,7 @@ import { CadastroDialogComponent } from './pages/clientes-colaboradores/cadastro
 import { CaixaInicialComponent } from './pages/caixa/caixa-inicial/caixa-inicial.component';
 import { CaixaCadastroComponent } from './pages/caixa/caixa-cadastro/caixa-cadastro.component';
 import { LiItemComponent } from './pages/caixa/components/li-item/li-item.component';
+import { HistoricoInicioComponent } from './pages/historico/historico-inicio/historico-inicio.component';
 
 
 @NgModule({
@@ -69,7 +70,8 @@ import { LiItemComponent } from './pages/caixa/components/li-item/li-item.compon
     CadastroDialogComponent,
     CaixaInicialComponent,
     CaixaCadastroComponent,
-    LiItemComponent
+    LiItemComponent,
+    HistoricoInicioComponent
   ],
   entryComponents: [
     ProdutoDialogComponent,

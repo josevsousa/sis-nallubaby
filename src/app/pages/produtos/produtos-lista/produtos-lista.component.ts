@@ -16,7 +16,7 @@ import { ProdutoDialogComponent } from '../produto-dialog/produto-dialog.compone
 })
 export class ProdutosListaComponent implements OnInit {
 
-  produtos$: Observable<Produto[]>  // $ pra indicar que é um observable
+  produtos$: Observable<Produto[]>;  // $ pra indicar que é um observable
   loading = true;
 
 

@@ -19,6 +19,10 @@ export class CaixaInicialComponent implements OnInit {
   valorTotalDesconto: number = 0;
   tipoPagamento: string;
 
+  nomeBotaoEnvio: string = 'Finalizar Pedido';
+  nomeBotaoDeletar: string = 'Excluir Pedido';
+  createPedido: boolean = true;
+
   codigo: string;
 
   pedido: Pedido = {
@@ -27,7 +31,8 @@ export class CaixaInicialComponent implements OnInit {
     representante: '',
     desconto: null,
     tipoPagamento: '',
-    listaProdutos: ''
+    listaProdutos: '',
+    dataCreate: null
   };
 
   constructor(
@@ -44,6 +49,11 @@ export class CaixaInicialComponent implements OnInit {
     if(localStorage.getItem('desconto')){
       this.desconto = parseFloat(localStorage.getItem('desconto'));
       this.valorTotalDesconto = (this.valorTotal - this.desconto);
+    };
+    if(localStorage.getItem('uid')){
+      this.nomeBotaoEnvio = "Atualizar Pedido";
+      this.nomeBotaoDeletar = "Não Alterar";
+      this.createPedido = false;
     }
   }
 
@@ -65,29 +75,53 @@ export class CaixaInicialComponent implements OnInit {
   }
 
   deletePedido(){
-    if(confirm("Tem certeza que deseja deletar esse pedido?")){
+    let msg = "Tem certeza que deseja esquecer esse pedido?";
+    let voltar = "/inicio";
+    if(!this.createPedido){
+       msg = "Nenhuma alteração será feita nesse pedido ok!";
+       voltar = "/historico";
+    }
+
+    if(confirm(msg)){
       localStorage.clear();
-      this.router.navigate(['/inicio']);
+      this.router.navigate([voltar]);
     }
   }
 
   finalizarPedido(){
+
     if(this.validandoBotaoEnviar()){
         this.pedido = {
           codigo: localStorage.getItem('codigo'),
           cliente: localStorage.getItem('cliente'),
           representante: localStorage.getItem('representante'),
-          desconto: parseFloat(localStorage.getItem('desconto')),
+          desconto: localStorage.getItem('desconto'),
           tipoPagamento: localStorage.getItem('tipoPagamento'),
-          listaProdutos: this.listaProdutos
+          listaProdutos: this.listaProdutos,
+          dataCreate: new Date()
         };
-
-        //enviar ao firebase
-        this.pedidosService.create(this.pedido)
-          .then(()=>{
-            localStorage.clear();
-            this.router.navigate(['/inicio']);
-        });
+        if(this.createPedido){
+            console.log("criar pedido");
+            //enviar ao firebase
+            this.pedidosService.create(this.pedido)
+              .then(()=>{
+                localStorage.clear();
+                this.router.navigate(['/historico']);
+            });
+        }else{
+           this.pedido.uid = localStorage.getItem('uid');
+           this.pedido.listaProdutos = JSON.parse(localStorage.getItem('listaProdutos'));
+          // updates no firestore
+          this.pedidosService.update(this.pedido)
+            .then(()=>{
+              console.log("foi alterado?");
+              localStorage.clear();
+              this.router.navigate(['/historico']);
+            })
+            .catch((error)=>{
+              console.log("tipo de erro : " + error)
+            }) 
+        } 
      }
   }
   
