@@ -65,9 +65,11 @@ export class PedidoService {
   valorTotal(){
     let total = 0;
     let listaProdutos = JSON.parse(localStorage.getItem('listaProdutos'));
-    listaProdutos.forEach((item)=>{
-      total += (item.valor * item.qtd)
-    });
+    if(listaProdutos){
+      listaProdutos.forEach((item)=>{
+        total += (item.valor * item.qtd)
+      });
+    }  
 
     // if(localStorage.getItem('desconto')){
     //   total -= parseFloat(localStorage.getItem('desconto'));
