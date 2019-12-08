@@ -4,6 +4,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { LoginComponent } from './login/login.component';
 import { InicioComponent } from './inicio/inicio.component';
 import { ProdutosListaComponent } from './pages/produtos/produtos-lista/produtos-lista.component';
+import { ProdutosTableListComponent } from "./pages/produtos/produtos-table-list/produtos-table-list.component";
 import { ClientesComponent } from './pages/clientes-colaboradores/clientes/clientes.component';
 import { ColaboradoresComponent } from './pages/clientes-colaboradores/colaboradores/colaboradores.component';
 import { CaixaInicialComponent } from "./pages/caixa/caixa-inicial/caixa-inicial.component";
@@ -33,9 +34,9 @@ const routes: Routes = [
   { path: 'caixa', component: CaixaInicialComponent, canActivate: [AuthGuard] },
   { path: 'colaboradores', component: ColaboradoresComponent, canActivate: [AuthGuard] },
   { path: 'clientes', component: ClientesComponent, canActivate: [AuthGuard] },
-  { path: 'produtos', component: ProdutosListaComponent, canActivate: [AuthGuard] },
+  { path: 'produtos', component: ProdutosTableListComponent, canActivate: [AuthGuard] },
   { path: 'historico', component: HistoricoInicioComponent, canActivate: [AuthGuard]},
-  { path: ' ', redirectTo:'inicio', pathMatch: 'full'},
+  { path: ' ', redirectTo:'produtos', pathMatch: 'full'},
   { path: '**', component: HistoricoInicioComponent}  
 ];
 

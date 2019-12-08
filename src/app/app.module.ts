@@ -33,17 +33,18 @@ import {
   MatDialogModule,
   MatExpansionModule,
   MatAutocompleteModule,
-  MatSelectModule
+  MatSelectModule,
+  MatProgressSpinnerModule,
+  MatPaginatorModule
+  
 } from "@angular/material";
 
 import { CadastroService } from "./services/cadastro.service";
 import { PedidoService } from "./services/pedido.service";
 import { PedidosService } from "./services/pedidos.service";
 
-import { ProdutosListaComponent } from './pages/produtos/produtos-lista/produtos-lista.component';
-import { ProdutoDialogComponent } from './pages/produtos/produto-dialog/produto-dialog.component';
-import { AuthComponent } from './components/auth/auth.component';
 
+import { AuthComponent } from './components/auth/auth.component';
 import { LoginComponent } from './login/login.component';
 
 import { AuthGuard } from "./guards/auth.guard";
@@ -54,6 +55,8 @@ import { CaixaInicialComponent } from './pages/caixa/caixa-inicial/caixa-inicial
 import { CaixaCadastroComponent } from './pages/caixa/caixa-cadastro/caixa-cadastro.component';
 import { LiItemComponent } from './pages/caixa/components/li-item/li-item.component';
 import { HistoricoInicioComponent } from './pages/historico/historico-inicio/historico-inicio.component';
+import { ProdutoDialogComponent } from './pages/produtos/produto-dialog/produto-dialog.component';
+import { ProdutosTableListComponent } from './pages/produtos/produtos-table-list/produtos-table-list.component';
 
 
 @NgModule({
@@ -61,7 +64,6 @@ import { HistoricoInicioComponent } from './pages/historico/historico-inicio/his
     AppComponent,
     ToolBarComponent,
     InicioComponent,
-    ProdutosListaComponent,
     AuthComponent,
     LoginComponent,
     ProdutoDialogComponent,
@@ -71,7 +73,8 @@ import { HistoricoInicioComponent } from './pages/historico/historico-inicio/his
     CaixaInicialComponent,
     CaixaCadastroComponent,
     LiItemComponent,
-    HistoricoInicioComponent
+    HistoricoInicioComponent,
+    ProdutosTableListComponent
   ],
   entryComponents: [
     ProdutoDialogComponent,
@@ -100,7 +103,9 @@ import { HistoricoInicioComponent } from './pages/historico/historico-inicio/his
     MatInputModule,
     MatExpansionModule,
     MatAutocompleteModule,
-    MatSelectModule
+    MatSelectModule,
+    MatProgressSpinnerModule,
+    MatPaginatorModule
   ],
   providers: [
     AuthService,
