@@ -11,27 +11,58 @@
         <td class="codigo">{{item.codigo}}</td>
     </li>
 </ul> -->
+<mat-form-field >
+    <mat-label>Ano </mat-label>
+    <mat-select matNativeControl [(value)]="ano">
+        <!-- <optgroup label="Cheques"> -->
+        <mat-option value="2019">2019</mat-option>
+        <mat-option value="2020">2020</mat-option>
+        <mat-option value="2021">2021</mat-option>
+        <!-- </optgroup> -->
+    </mat-select>
+</mat-form-field><mat-form-field >
+    <mat-label>Mes </mat-label>
+    <mat-select matNativeControl [(value)]="mes">
+        <!-- <optgroup label="Cheques"> -->
+        <mat-option value="01">Janeiro</mat-option>
+        <mat-option value="02">Fevereiro</mat-option>
+        <mat-option value="03">Março</mat-option>
+        <mat-option value="04">Abril</mat-option>
+        <mat-option value="05">Maio</mat-option>
+        <mat-option value="06">Junho</mat-option>
+        <mat-option value="07">Julho</mat-option>
+        <mat-option value="08">Agosto</mat-option>
+        <mat-option value="09">Setembro</mat-option>
+        <mat-option value="10">Outubro</mat-option>
+        <mat-option value="11">Novemro</mat-option>
+        <mat-option value="12">Desembro</mat-option>
+        <!-- </optgroup> -->
+    </mat-select>
+</mat-form-field>
 
 <table>
     <caption>HISTÓRICO DE VENDAS</caption>
     <thead>
         <tr>
         <th>Codigo</th>
-        <th>Data</th>
+        <th>Criado/Atualizado</th>
         <th>Visualizar</th>
         <th>Deletar</th>
         </tr>
     </thead>
-    <tr *ngFor="let item of pedidos$ | async">
-    <td>{{item.codigo}}</td>
-    <td>{{item.dataCreate.seconds*1000 | date: 'yyyy-MM-dd HH:mm'}}</td>
-    <td>
-        <button (click)="updatePedido(item)">vizualizar</button>
-    </td>
-    <td>
-        <button (click)="deletePedido(item)">Deletar</button>
-    </td>
-    </tr>
+    <ng-container *ngFor="let item of pedidos$ | async">
+
+            <tr *ngIf="( (item.dataCreate.seconds*1000 | date: 'yyyy-MM') == (ano + '-' + mes )) ">
+                <td>{{item.codigo}}</td>
+                <td>{{item.dataCreate.seconds*1000 | date: 'yyyy-MM-dd HH:mm'}}</td>
+                <td>
+                    <button (click)="updatePedido(item)">vizualizar</button>
+                </td>
+                <td>
+                    <button (click)="deletePedido(item)">Deletar</button>
+                </td>
+            </tr>
+    </ng-container>
 </table>
        
       

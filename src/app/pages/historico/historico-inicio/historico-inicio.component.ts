@@ -18,6 +18,9 @@ export class HistoricoInicioComponent implements OnInit {
   pedidos$: Observable<Pedido[]>;
   loading = true;
 
+  ano: string;
+  mes: string;
+
   pedido: Pedido = {
     codigo: '',
     cliente: '',
@@ -31,13 +34,21 @@ export class HistoricoInicioComponent implements OnInit {
   constructor(
     private pedidosService: PedidosService,
     private router: Router
-  ) { }
+  ) {
+
+    // pegar nosso mes e ano atual
+    const dataAtual = new Date();
+    this.ano = (dataAtual.getFullYear()).toString();
+    this.mes = ("0000" + (dataAtual.getMonth()+1)).slice(-2);
+    console.log(this.ano)
+   }
 
   ngOnInit() {
     this.pedidos$ = this.pedidosService.pedidos.valueChanges();
     this.pedidos$
       .pipe(take(2))
       .subscribe( ()=> this.loading = false ); 
+    
   }
 
   deletePedido(pedido){
