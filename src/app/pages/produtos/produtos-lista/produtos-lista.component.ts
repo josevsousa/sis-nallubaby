@@ -42,11 +42,11 @@ export class ProdutosListaComponent implements OnInit {
   }
 
 
-  showDialog(produto?: Produto){
-    // config recebe produto para enviar para o Dialog
-    const config: MatDialogConfig<any> = (produto)? {data: { produto }}: null ;
-    this.dialog.open(ProdutoDialogComponent, config);
-  }
+  // showDialog(produto?: Produto){
+  //   // config recebe produto para enviar para o Dialog
+  //   const config: MatDialogConfig<any> = (produto)? {data: { produto }}: null ;
+  //   this.dialog.open(ProdutoDialogComponent, config);
+  // }
 
   onDelete(produto: Produto): void {
     this.produtosService.delete(produto);

@@ -20,7 +20,7 @@ export class CaixaInicialComponent implements OnInit {
   tipoPagamento: string;
 
   nomeBotaoEnvio: string = 'Finalizar Pedido';
-  nomeBotaoDeletar: string = 'Excluir Pedido';
+  nomeBotaoDeletar: string = 'delete';
   createPedido: boolean = true;
 
   codigo: string;
@@ -52,7 +52,7 @@ export class CaixaInicialComponent implements OnInit {
     };
     if(localStorage.getItem('uid')){
       this.nomeBotaoEnvio = "Atualizar Pedido";
-      this.nomeBotaoDeletar = "Não Alterar";
+      this.nomeBotaoDeletar = "replay";
       this.createPedido = false;
     }
   }

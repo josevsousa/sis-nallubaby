@@ -36,8 +36,8 @@ const routes: Routes = [
   { path: 'clientes', component: ClientesComponent, canActivate: [AuthGuard] },
   { path: 'produtos', component: ProdutosTableListComponent, canActivate: [AuthGuard] },
   { path: 'historico', component: HistoricoInicioComponent, canActivate: [AuthGuard]},
-  { path: ' ', redirectTo:'produtos', pathMatch: 'full'},
-  { path: '**', component: HistoricoInicioComponent}  
+  { path: ' ', redirectTo:'inicio', pathMatch: 'full'},
+  { path: '**', component: InicioComponent}  
 ];
 
 @NgModule({

@@ -15,7 +15,7 @@
     <div class="list">
         <div class="view-display">
             <mat-form-field class="example-full-width desconto">
-                <input matInput type="number" placeholder="Desconto" [min]="0" [value]="desconto" (blur)="addDesconto($event.target.value)">
+                <input matInput type="number" placeholder="Desconto" [min]="0" [value]="desconto" (keyup)="addDesconto($event.target.value)">
             </mat-form-field>
             <mat-form-field class="parcelas" id="tipoPagamento">
                 <mat-label>Tipo de pagamento</mat-label>
@@ -30,9 +30,11 @@
                 </mat-select>
             </mat-form-field>
             <button mat-flat-button color="primary" (click)="finalizarPedido()" >{{nomeBotaoEnvio}}</button>
-            <button mat-flat-button color="warn" (click)="deletePedido()">{{nomeBotaoDeletar}}</button>
+            <button mat-flat-button color="warn" (click)="deletePedido()">
+                <mat-icon>{{nomeBotaoDeletar}}</mat-icon>
+                </button>
             <div class="valorTotal">
-                <span class="valorTotal valorTotalColor">Total: {{valorTotal | currency: 'BRL'}}</span> <span *ngIf="desconto">- Desconto: {{desconto | currency: 'BRL'}} = SubTotal: <span class="valorTotal valorSubTotalColor">{{valorTotalDesconto | currency: 'BRL'}}</span> </span>
+                <span class="valorTotal valorTotalColor">Total: {{valorTotal | currency: 'BRL'}}</span> <span *ngIf="desconto"> - Desconto: {{desconto | currency: 'BRL'}} = SubTotal: <span class="valorTotal valorSubTotalColor">{{valorTotalDesconto | currency: 'BRL'}}</span> </span>
             </div>
         </div>
         <ul class="lista-produtos">
