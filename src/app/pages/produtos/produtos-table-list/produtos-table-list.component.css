@@ -1,20 +1,17 @@
-.tableBody{
-    padding: 10px;
-  }
+
+table {
+  width: 100%;
+}
   
-  table {
-    width: 100%;
-  }
-    
-  .mat-form-field {
-    font-size: 14px;
-    width: 100%;
-  }
-  
-  td, th {
-    width: 25%;
-  }
-  
-  .btEditTable {
-    display: flex;
-  }
+.mat-form-field {
+  font-size: 14px;
+  width: 100%;
+}
+
+td, th {
+  width: 25%;
+}
+
+.btEditTable {
+  display: flex;
+}

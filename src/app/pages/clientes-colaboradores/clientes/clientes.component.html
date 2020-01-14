@@ -1,6 +1,7 @@
 <div class="titleFull">
     <div>
-        <button mat-button (click)="backPage()">
+        <!-- <button mat-button (click)="atualizarItems()"> -->
+            <button mat-button (click)="backPage()">
             <mat-icon>keyboard_arrow_left</mat-icon>
         </button>
         <h4>lISTA DE CLIENTES</h4>
@@ -18,7 +19,7 @@
     </tr>
 
     <ng-container *ngFor="let cadastro of cadastro$ | async" >
-        <tr *ngIf="cadastro.categoria !== 'colaborador'"> <!-- so exibe os clientes -->
+        <tr *ngIf="cadastro.categoria == 'cliente'"> <!-- so exibe os clientes -->
             <td class="bt">
             <mat-nav-list>
                 <button mat-icon-button 

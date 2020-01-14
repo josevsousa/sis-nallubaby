@@ -27,6 +27,37 @@ export class ClientesComponent implements OnInit {
       private cadastroService: CadastroService
     ) { }
 
+ // função para atualiar dados no firebase
+ atualizarItems(){
+  this.cadastroService.cadastros.valueChanges().forEach(item => {
+        item.map((i)=>{
+          // this.produtosService.update(i);
+          // if(i.categoria != ''){
+            this.cadastroService.update({
+              uid: i.uid,
+              tipo: i.tipo,
+              categoria: 'cliente',  // cliente, colaborador
+              nome: i.nome,
+              celular: i.celular,
+              fixo: i.fixo,
+              email: i.email,
+              rg: i.rg,
+              cpf: i.cpf,
+              cnpj: i.cnpj,
+              insc: i.insc,
+              cep: i.cep,
+              uf: i.uf,
+              bairro: i.bairro, 
+              cidade: i.cidade,
+              logradouro: i.logradouro,
+              numero: i.numero,
+              registrado: i.registrado 
+            });
+          // }
+        })   
+  });
+}
+
 
     
   ngOnInit(): void {

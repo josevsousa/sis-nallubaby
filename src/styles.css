@@ -57,9 +57,6 @@ tr:hover {
 mat-form-field.nome, mat-form-field.email {
     width: 99%;
 }
-mat-form-field.celular, mat-form-field.fixo {
-    width: 49%;
-}
 
 mat-form-field.cidade {
     width: 56%;
@@ -82,15 +79,16 @@ mat-form-field.rg, mat-form-field.cpf {
     width: 49%;
 }
 
-mat-form-field.cnpj, mat-form-field.insc, mat-form-field.cep {
+mat-form-field.cnpj, mat-form-field.insc, mat-form-field.cep, mat-form-field.celular, mat-form-field.fixo, mat-form-field.categoria {
     width: 32%;
 }
 mat-form-field {
     margin-right: 5px;
 }
 
-
-
+.tableBody{
+    padding: 10px;
+  }
 .qtd {
     width: 10%;
 }

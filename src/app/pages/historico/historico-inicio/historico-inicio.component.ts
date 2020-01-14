@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from "@angular/router";
+import { Location } from "@angular/common";
 import { Observable } from "rxjs";
 import { Pedido } from "../../../models/pedido.models";
 import { take } from "rxjs/operators";
@@ -13,7 +14,6 @@ import { PedidosService } from "../../../services/pedidos.service";
   styleUrls: ['./historico-inicio.component.css']
 })
 export class HistoricoInicioComponent implements OnInit {
-
 
   pedidos$: Observable<Pedido[]>;
   loading = true;
@@ -33,6 +33,7 @@ export class HistoricoInicioComponent implements OnInit {
 
   constructor(
     private pedidosService: PedidosService,
+    private location: Location,
     private router: Router
   ) {
 
@@ -44,12 +45,16 @@ export class HistoricoInicioComponent implements OnInit {
    }
 
   ngOnInit() {
+    // buscando Historico
     this.pedidos$ = this.pedidosService.pedidos.valueChanges();
     this.pedidos$
       .pipe(take(2))
-      .subscribe( ()=> this.loading = false ); 
+      .subscribe( (resp)=> {
+        this.loading = false 
+      }); 
     
   }
+
 
   deletePedido(pedido){
     if(confirm("Tem certeza que deseja deletar esse pedido?")){
@@ -68,5 +73,11 @@ export class HistoricoInicioComponent implements OnInit {
       localStorage.setItem('uid', pedidoUp.uid);
       this.router.navigate(['/caixa']);
   }
+
+
+  backPage(){
+    this.location.back();
+  }
+
 
 }

@@ -5,3 +5,24 @@ table {
 thead{
     text-align: left;
 }
+
+.mat-form-field{
+  float: left;
+  width: 49%;
+ } 
+
+.anoMes {
+  width: 60%;
+  margin: 0 auto;
+}
+
+.bts {
+  width: 91px;
+  text-align: center;
+}
+
+table th {
+  background: whitesmoke;
+  padding: 5px;
+  color: #848484;
+}

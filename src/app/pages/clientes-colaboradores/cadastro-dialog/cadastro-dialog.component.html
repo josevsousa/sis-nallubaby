@@ -7,21 +7,33 @@
             #titleControl="ngModel">
     </mat-form-field>
 
-        <!-- <mat-form-field class="categoria">
-                <input type="string" placeholder="Categoria" value="categoria" matInput [(ngModel)]="novoCadastro.categoria" minlength="3">
-                </mat-form-field>
-            -->
-    
+    <!-- ========================================= -->
+    <!-- <mat-form-field class="categoria">
+        <input type="string" placeholder="Categoria" value="categoria" matInput [(ngModel)]="novoCadastro.categoria" minlength="3">
+    </mat-form-field> -->
+
+    <mat-form-field>
+        <mat-label>Categoria </mat-label>
+        <mat-select matNativeControl [(ngModel)]="novoCadastro.categoria">
+            <!-- <optgroup label="Ano"> -->
+                <mat-option value="cliente">Cliente</mat-option>
+                <mat-option value="colaborador">Colaborador</mat-option>
+                <mat-option value="representante">Representante</mat-option>
+            <!-- </optgroup> -->
+        </mat-select>
+    </mat-form-field>
+
 
     <mat-form-field class="celular">
         <input type="string" placeholder="celular" matInput [(ngModel)]="novoCadastro.celular" required minlength="3"
             #titleControl="ngModel">
-    </mat-form-field>
-
+    </mat-form-field>    
     <mat-form-field class="fixo">
         <input type="string" placeholder="fixo" matInput [(ngModel)]="novoCadastro.fixo" minlength="3" >
     </mat-form-field>
 
+    <!-- ========================================= -->       
+    
     <mat-form-field class="email">
         <input type="string" placeholder="email" matInput [(ngModel)]="novoCadastro.email" minlength="3">
     </mat-form-field>
