@@ -57,6 +57,7 @@ import { LiItemComponent } from './pages/caixa/components/li-item/li-item.compon
 import { HistoricoInicioComponent } from './pages/historico/historico-inicio/historico-inicio.component';
 import { ProdutoDialogComponent } from './pages/produtos/produto-dialog/produto-dialog.component';
 import { ProdutosTableListComponent } from './pages/produtos/produtos-table-list/produtos-table-list.component';
+import { ProdutosListaComponent } from "./pages/produtos/produtos-lista/produtos-lista.component";
 
 
 @NgModule({
@@ -74,7 +75,8 @@ import { ProdutosTableListComponent } from './pages/produtos/produtos-table-list
     CaixaCadastroComponent,
     LiItemComponent,
     HistoricoInicioComponent,
-    ProdutosTableListComponent
+    ProdutosTableListComponent,
+    ProdutosListaComponent
   ],
   entryComponents: [
     ProdutoDialogComponent,

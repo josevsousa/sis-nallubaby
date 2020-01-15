@@ -14,7 +14,7 @@ export class LiItemComponent implements OnInit {
   @Output() deleteUpdate: EventEmitter<any> = new EventEmitter();
   
   @Input() index: string;
-  @Input() item: Object;
+  @Input() item: any;
   
   total: number;
 
@@ -36,10 +36,13 @@ export class LiItemComponent implements OnInit {
 
   newQtd(valorQtd){
     // atualizar total item
-    this.total = (valorQtd * this.item['valor'] );
+    this.total = ( valorQtd * this.item['valor'] );
 
     // atualziar nova qtd no localStorage
-    this.pedidoService.updateProduto(this.index, valorQtd);
+    this.pedidoService.updateProduto(
+      this.index, 
+      valorQtd
+    );
 
     // atualizar fullTotal
     this.deleteUpdate.emit();

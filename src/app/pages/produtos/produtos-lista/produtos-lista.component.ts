@@ -8,7 +8,6 @@ import { ProdutosService } from '../../../services/produtos.service';
 import { MatDialog, MatDialogConfig } from '@angular/material';
 import { ProdutoDialogComponent } from '../produto-dialog/produto-dialog.component';
 
-
 @Component({
   selector: 'app-produtos-lista',
   templateUrl: './produtos-lista.component.html',
@@ -18,7 +17,6 @@ export class ProdutosListaComponent implements OnInit {
 
   produtos$: Observable<Produto[]>;  // $ pra indicar que é um observable
   loading = true;
-
 
   constructor(
     private location: Location,
@@ -42,11 +40,11 @@ export class ProdutosListaComponent implements OnInit {
   }
 
 
-  // showDialog(produto?: Produto){
-  //   // config recebe produto para enviar para o Dialog
-  //   const config: MatDialogConfig<any> = (produto)? {data: { produto }}: null ;
-  //   this.dialog.open(ProdutoDialogComponent, config);
-  // }
+  showDialog(produto?: Produto){
+    // config recebe produto para enviar para o Dialog
+    const config: MatDialogConfig<any> = (produto)? {data: { produto }}: null ;
+    this.dialog.open(ProdutoDialogComponent, config);
+  }
 
   onDelete(produto: Produto): void {
     this.produtosService.delete(produto);

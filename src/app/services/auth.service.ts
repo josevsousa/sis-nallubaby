@@ -12,7 +12,6 @@ export class AuthService {
 
   private user: firebase.User;
 
-
   constructor(
     public afAuth: AngularFireAuth,
     public afs: AngularFirestore 

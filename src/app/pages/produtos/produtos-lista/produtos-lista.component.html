@@ -12,7 +12,7 @@
 <img src="../../../../assets/load.gif" *ngIf="loading" class="spinner" alt="">
 
 
-<table matSort (matSortChange)="sortData($event)">
+<table matSort >
   <tr *ngIf="!loading">
     <th mat-sort-header="menu" class="bt"></th>
     <th mat-sort-header="codigo">Codigo</th>
