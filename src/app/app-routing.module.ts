@@ -13,22 +13,6 @@ import { HistoricoInicioComponent } from "./pages/historico/historico-inicio/his
 import { AuthGuard } from "./guards/auth.guard";
 import { LoginGuard } from "./guards/login.guard";
 
-// const routes: Routes = [
-//   {
-//     path: '',
-//     loadChildren: () => import('../app/inicio/inicio.component').then(m => m.InicioComponent) 
-//   },
-//   {
-//     path: '',
-//     loadChildren: () => import('../app/login/login.component').then(m => m.LoginComponent) 
-//   },
-//   {
-//     path: '',
-//     loadChildren: () => import('../app/pages/produtos/produtos-lista/produtos-lista.component').then(m => m.ProdutosListaComponent) 
-//   }
-
-// ]
-
 const routes: Routes = [
   { path: ' ', redirectTo:'login', pathMatch: 'full' },
   { path: 'login',  component: LoginComponent, canActivate: [LoginGuard]},
@@ -38,7 +22,7 @@ const routes: Routes = [
   { path: 'clientes', component: ClientesComponent, canActivate: [AuthGuard] },
   { path: 'produtos', component: ProdutosTableListComponent, canActivate: [AuthGuard] },
   { path: 'historico', component: HistoricoInicioComponent, canActivate: [AuthGuard]},
-  // { path: '**', component: LoginComponent }  
+  { path: '**', component: LoginComponent }  
 ];
 
 @NgModule({

@@ -16,12 +16,10 @@ export class AuthComponent {
 
   login(){
     this.authService.login();
-    // this.router.navigate(['/inicio']);
   }
 
   logout(){
     this.authService.logout();
-    // this.router.navigate(['/login']);
   }
 
 }
