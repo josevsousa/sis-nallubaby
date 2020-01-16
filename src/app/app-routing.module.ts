@@ -11,6 +11,7 @@ import { CaixaInicialComponent } from "./pages/caixa/caixa-inicial/caixa-inicial
 import { HistoricoInicioComponent } from "./pages/historico/historico-inicio/historico-inicio.component";
 
 import { AuthGuard } from "./guards/auth.guard";
+import { LoginGuard } from "./guards/login.guard";
 
 // const routes: Routes = [
 //   {
@@ -29,15 +30,15 @@ import { AuthGuard } from "./guards/auth.guard";
 // ]
 
 const routes: Routes = [
-  { path: 'login',  component: LoginComponent},
+  { path: ' ', redirectTo:'login', pathMatch: 'full' },
+  { path: 'login',  component: LoginComponent, canActivate: [LoginGuard]},
   { path: 'inicio',  component: InicioComponent, canActivate: [AuthGuard] },
   { path: 'caixa', component: CaixaInicialComponent, canActivate: [AuthGuard] },
   { path: 'colaboradores', component: ColaboradoresComponent, canActivate: [AuthGuard] },
   { path: 'clientes', component: ClientesComponent, canActivate: [AuthGuard] },
   { path: 'produtos', component: ProdutosTableListComponent, canActivate: [AuthGuard] },
   { path: 'historico', component: HistoricoInicioComponent, canActivate: [AuthGuard]},
-  { path: ' ', redirectTo:'inicio', pathMatch: 'full'},
-  { path: '**', component: InicioComponent}  
+  // { path: '**', component: LoginComponent }  
 ];
 
 @NgModule({

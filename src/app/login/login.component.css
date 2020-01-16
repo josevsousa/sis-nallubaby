@@ -1,0 +1,16 @@
+img {
+    width: 30%;
+    /* display: flex; */
+    /* margin: 0 auto; */
+}
+
+.font1{
+    font-family: 'Montserrat', sans-serif;
+    text-align: center;
+    color: #34a853;
+}
+
+.g {
+    margin: 0 auto;
+    display: flex;
+}

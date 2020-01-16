@@ -48,6 +48,8 @@ import { AuthComponent } from './components/auth/auth.component';
 import { LoginComponent } from './login/login.component';
 
 import { AuthGuard } from "./guards/auth.guard";
+import { LoginGuard } from "./guards/login.guard";
+
 import { ClientesComponent } from './pages/clientes-colaboradores/clientes/clientes.component';
 import { ColaboradoresComponent } from './pages/clientes-colaboradores/colaboradores/colaboradores.component';
 import { CadastroDialogComponent } from './pages/clientes-colaboradores/cadastro-dialog/cadastro-dialog.component';
@@ -112,6 +114,7 @@ import { ProdutosListaComponent } from "./pages/produtos/produtos-lista/produtos
   providers: [
     AuthService,
     AuthGuard,
+    LoginGuard,
     ProdutosService,
     CadastroService,
     PedidoService,
