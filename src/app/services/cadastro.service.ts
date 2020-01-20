@@ -12,7 +12,9 @@ export class CadastroService {
 
   constructor(
     private db: AngularFirestore
-  ) { this.setCadastro(); }
+  ) { 
+    this.setCadastro(); 
+  }
 
     // iniciando tipo o OnInit dos components nesse caso carregando o objeto produtos  
     private setCadastro(): void {

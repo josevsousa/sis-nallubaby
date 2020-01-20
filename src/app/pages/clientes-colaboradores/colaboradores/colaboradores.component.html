@@ -1,1 +1,93 @@
-<p>colaboradores works!</p>
+<div class="titleFull">
+    <div>
+        <!-- <button mat-button (click)="atualizarItems()"> -->
+        <button mat-button (click)="backPage()">
+            <mat-icon>keyboard_arrow_left</mat-icon>
+        </button>
+        <h4>lISTA DE COLABORADORES</h4>
+    </div>
+</div>
+
+<img src="../../assets/load.gif" *ngIf="loading" class="spinner" alt="">
+
+
+<table matSort>
+    <!-- <table matSort (matSortChange)="sortData($event)"> -->
+    <tr *ngIf="!loading">
+        <th mat-sort-header="menu" class="bt"></th>
+        <th mat-sort-header="nome">Nome</th>
+        <th mat-sort-header="celular">celular</th>
+        <th mat-sort-header="tipo">Categoria</th>
+    </tr>
+    <ng-container *ngFor="let cadastro of cadastro$ | async">
+        <tr *ngIf="cadastro.categoria == 'colaborador'">
+            <!-- so exibe os clientes -->
+            <td class="bt">
+                <mat-nav-list>
+                    <button mat-icon-button [matMenuTriggerFor]="cadastroMenu"
+                        [matMenuTriggerData]="{cadastroUpdateToDelete: cadastro}">
+                        <mat-icon>drag_indicator</mat-icon>
+                    </button>
+                </mat-nav-list>
+
+                <mat-menu #cadastroMenu="matMenu">
+                    <ng-template matMenuContent let-cadastro="cadastroUpdateToDelete">
+                        <button mat-menu-item (click)="showDialog(cadastro)">
+                            <mat-icon>edit</mat-icon>
+                            <span>Editar</span>
+                        </button>
+
+                        <button mat-menu-item (click)="onDelete(cadastro)">
+                            <mat-icon>delete</mat-icon>
+                            <span>Remove</span>
+                        </button>
+                    </ng-template>
+                </mat-menu>
+            </td>
+
+            <td>{{cadastro.nome}}</td>
+            <td>{{cadastro.celular}}</td>
+            <td>{{cadastro.categoria}}</td>
+
+        </tr>
+    </ng-container>
+
+    <ng-container *ngFor="let cadastro of cadastro$ | async">
+        <tr *ngIf="cadastro.categoria == 'representante'">
+            <!-- so exibe os clientes -->
+            <td class="bt">
+                <mat-nav-list>
+                    <button mat-icon-button [matMenuTriggerFor]="cadastroMenu"
+                        [matMenuTriggerData]="{cadastroUpdateToDelete: cadastro}">
+                        <mat-icon>drag_indicator</mat-icon>
+                    </button>
+                </mat-nav-list>
+
+                <mat-menu #cadastroMenu="matMenu">
+                    <ng-template matMenuContent let-cadastro="cadastroUpdateToDelete">
+                        <button mat-menu-item (click)="showDialog(cadastro)">
+                            <mat-icon>edit</mat-icon>
+                            <span>Editar</span>
+                        </button>
+
+                        <button mat-menu-item (click)="onDelete(cadastro)">
+                            <mat-icon>delete</mat-icon>
+                            <span>Remove</span>
+                        </button>
+                    </ng-template>
+                </mat-menu>
+            </td>
+
+            <td>{{cadastro.nome}}</td>
+            <td>{{cadastro.celular}}</td>
+            <td>{{cadastro.categoria}}</td>
+
+        </tr>
+    </ng-container>
+
+
+</table>
+
+<button mat-fab class="fab-bottom-back btAdd" (click)="showDialog()">
+    <mat-icon>add</mat-icon>
+</button>

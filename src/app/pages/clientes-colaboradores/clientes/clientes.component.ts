@@ -65,7 +65,7 @@ export class ClientesComponent implements OnInit {
     this.cadastro$ = this.cadastroService.cadastros.valueChanges();
     // this.cadastroClienteColaborador$ = this.clienteColaboradorService.cadastroClienteColaboradores.valueChanges();
  
-    // delegar carregamento dos produtos para o loading no spinner
+    // delegar carregamento do cadastro para o loading no spinner
     this.cadastro$
       .pipe(take(2))
       .subscribe( () => this.loading = false )
