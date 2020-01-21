@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from "../services/auth.service";
-import { Router } from "@angular/router";
+import { Location } from "@angular/common";
+import { Observable } from 'rxjs';
+// import { Router } from "@angular/router";
 
 @Component({
   selector: 'app-login',
@@ -9,22 +11,24 @@ import { Router } from "@angular/router";
 })
 export class LoginComponent implements OnInit {
 
-
   constructor(
     public authService: AuthService,
-    private router: Router
+    public location: Location
     ) { }
 
   ngOnInit() {
-
   }
 
   login(): void{
     this.authService.login();
+  }
 
-    // this.authService.login().then(()=>{
-    //   this.router.navigateByUrl('/home')
-    // });
+  backPage(){
+    this.location.back();
+  }
+
+  logout(): void{
+    this.authService.logout()
   }
 
 }

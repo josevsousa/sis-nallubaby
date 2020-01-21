@@ -35,7 +35,8 @@ import {
   MatAutocompleteModule,
   MatSelectModule,
   MatProgressSpinnerModule,
-  MatPaginatorModule
+  MatPaginatorModule,
+  MatCardModule
   
 } from "@angular/material";
 
@@ -109,7 +110,8 @@ import { ProdutosListaComponent } from "./pages/produtos/produtos-lista/produtos
     MatAutocompleteModule,
     MatSelectModule,
     MatProgressSpinnerModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    MatCardModule
   ],
   providers: [
     AuthService,

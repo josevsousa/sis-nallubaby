@@ -44,7 +44,17 @@ export class CaixaInicialComponent implements OnInit {
 
   ngOnInit(){  
     this.codigo = this.cadastroService.codigoVenda();
-    this.tipoPagamento = localStorage.getItem('tipoPagamento');
+    
+    
+    const tp = localStorage.getItem('tipoPagamento');
+    if (tp) {
+      this.tipoPagamento = tp;
+    } else {
+      this.tipoPagamento = "0";
+    }
+
+    console.log(this.tipoPagamento);
+
     this.atualizar();
     if(localStorage.getItem('desconto')){
       this.desconto = parseFloat(localStorage.getItem('desconto'));
@@ -89,7 +99,7 @@ export class CaixaInicialComponent implements OnInit {
   }
 
   finalizarPedido(){
-
+    console.log(this.validandoBotaoEnviar);
     if(this.validandoBotaoEnviar()){
         this.pedido = {
           codigo: localStorage.getItem('codigo'),
@@ -155,8 +165,8 @@ export class CaixaInicialComponent implements OnInit {
     }else{
       btEnviar = true;
     }
-    
+   
+    console.log(btEnviar); 
     return btEnviar;
   }
-
 }

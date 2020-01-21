@@ -20,12 +20,12 @@
             <mat-form-field class="parcelas" id="tipoPagamento">
                 <mat-label>Tipo de pagamento</mat-label>
                 <mat-select matNativeControl [(value)]="tipoPagamento" require (selectionChange)="onSelectTipoPagamento()">
-                    <mat-option value="avista">A vista</mat-option>
+                    <mat-option value="0">A vista</mat-option>
                     <!-- <optgroup label="Cheques"> -->
-                    <mat-option value="cheque2">Cheque 2X</mat-option>
-                    <mat-option value="cheque3">Cheque 3X</mat-option>
-                    <mat-option value="cheque4">Cheque 4X</mat-option>
-                    <mat-option value="cheque5">Cheque 5X</mat-option>
+                    <mat-option value="2">Cheque 2X</mat-option>
+                    <mat-option value="3">Cheque 3X</mat-option>
+                    <mat-option value="4">Cheque 4X</mat-option>
+                    <mat-option value="5">Cheque 5X</mat-option>
                     <!-- </optgroup> -->
                 </mat-select>
             </mat-form-field>
@@ -35,7 +35,10 @@
                 </button>
             <div class="valorTotal">
                 <span class="valorTotal valorTotalColor">Total: {{valorTotal | currency: 'BRL'}}</span> <span *ngIf="desconto"> - Desconto: {{desconto | currency: 'BRL'}} = SubTotal: <span class="valorTotal valorSubTotalColor">{{valorTotalDesconto | currency: 'BRL'}}</span> </span>
-            </div>
+                <div *ngIf="tipoPagamento != '0'">
+                    Valor da parcela : ( {{tipoPagamento}} x <span class="valorTotal valorSubTotalColor">{{valorTotalDesconto/tipoPagamento | currency: 'BRL' }}</span> )
+                </div>
+              </div>
         </div>
         <ul class="lista-produtos">
             <li class="headerList">

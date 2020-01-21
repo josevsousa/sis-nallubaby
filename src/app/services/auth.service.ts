@@ -5,6 +5,8 @@ import { AngularFireAuth } from '@angular/fire/auth';
 import { AngularFirestore } from "@angular/fire/firestore";
 import { auth } from 'firebase';
 
+import { Router } from "@angular/router";
+
 @Injectable({
   providedIn: 'root'
 })
@@ -14,7 +16,8 @@ export class AuthService {
 
   constructor(
     public afAuth: AngularFireAuth,
-    public afs: AngularFirestore 
+    public afs: AngularFirestore, 
+    private router: Router
   ) {
     afAuth.authState.subscribe(user => {
       this.user = user;
@@ -32,6 +35,7 @@ export class AuthService {
           uid: user.user.uid
         }
       );
+      this.router.navigateByUrl('/inicio');
     } catch (error) {
       console.log(error);
     }

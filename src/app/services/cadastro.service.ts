@@ -30,7 +30,7 @@ export class CadastroService {
         uid,
         categoria: cadastro.categoria,
         tipo: cadastro.tipo,
-        nome: cadastro.nome,
+        nome: (cadastro.nome).toLocaleLowerCase(),
         celular: cadastro.celular,
         fixo: cadastro.fixo,
         email: cadastro.email,

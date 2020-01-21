@@ -9,7 +9,6 @@ import { ClientesComponent } from './pages/clientes-colaboradores/clientes/clien
 import { ColaboradoresComponent } from './pages/clientes-colaboradores/colaboradores/colaboradores.component';
 import { CaixaInicialComponent } from "./pages/caixa/caixa-inicial/caixa-inicial.component";
 import { HistoricoInicioComponent } from "./pages/historico/historico-inicio/historico-inicio.component";
-
 import { AuthGuard } from "./guards/auth.guard";
 import { LoginGuard } from "./guards/login.guard";
 
