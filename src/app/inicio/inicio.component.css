@@ -1,0 +1,16 @@
+button{
+    padding: 10px  0;
+    width: 180px;
+    margin: 4px;
+}
+.box{
+    text-align: center;
+    font-family: 'Quicksand', sans-serif;
+
+}
+.title {
+    font-size: 4em;
+}
+.content{
+    font-size: 2em;
+}

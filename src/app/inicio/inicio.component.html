@@ -1,8 +1,17 @@
-<p>inicio works!</p>
+<br>
+<div class="box">
+    <div class="title">Sis Nallubaby!</div>
+    <div class="content">Seja bem vindo {{this.auth.user.displayName}}! </div>
+    <br><br>
+    <button mat-raised-button color="primary" routerLink="/caixa">
+        <mat-icon>shopping_cart</mat-icon>   
+        caixa
+    </button>
+    <button mat-raised-button color="warn" routerLink="/historico">
+        <mat-icon>list</mat-icon>   
+        Historico
+    </button>
+</div>
 
-<ul>
-    <li>30 pedidos feitos nesse mes</li>
-    <li>Valor total de pedidos R$ 3000,00</li>
-    <li>10 pedidos faltam separar</li>
-    <li>20 pedidos entregues</li>
-</ul>
+
+
