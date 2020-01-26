@@ -29,14 +29,20 @@
                     <!-- </optgroup> -->
                 </mat-select>
             </mat-form-field>
-            <button mat-flat-button color="primary" (click)="finalizarPedido()" >{{nomeBotaoEnvio}}</button>
+            <button mat-flat-button color="primary" (click)="finalizarPedido()" >{{nomeBotaoEnvio}}
+                
+            </button>
             <button mat-flat-button color="warn" (click)="deletePedido()">
-                <mat-icon>{{nomeBotaoDeletar}}</mat-icon>
-                </button>
+                <mat-icon>delete</mat-icon>
+            </button>
+            <a  id="print" href="javascript:window.print()">
+                <mat-icon>print</mat-icon>
+            </a>
+            
             <div class="valorTotal">
                 <span class="valorTotal valorTotalColor">Total: {{valorTotal | currency: 'BRL'}}</span> <span *ngIf="desconto"> - Desconto: {{desconto | currency: 'BRL'}} = SubTotal: <span class="valorTotal valorSubTotalColor">{{valorTotalDesconto | currency: 'BRL'}}</span> </span>
                 <div *ngIf="tipoPagamento != '0'">
-                    Valor da parcela : ( {{tipoPagamento}} x <span class="valorTotal valorSubTotalColor">{{valorTotalDesconto/tipoPagamento | currency: 'BRL' }}</span> )
+                    Valor da parcela : ( {{tipoPagamento}} x <span class="valorTotal valorSubTotalColor">{{ valorParcela() | currency: 'BRL' }}</span> )
                 </div>
               </div>
         </div>

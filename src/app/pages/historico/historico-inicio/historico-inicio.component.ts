@@ -7,6 +7,12 @@ import { take } from "rxjs/operators";
 
 // import { HistoricoService } from "../../../services/historico.service";
 import { PedidosService } from "../../../services/pedidos.service";
+import { PrintService } from "../../../services/print.service";
+
+import { RomaneioDialogComponent } from "../../caixa/romaneio-dialog/romaneio-dialog.component";
+
+import { MatDialog, MatDialogConfig } from '@angular/material';
+
 
 @Component({
   selector: 'app-historico-inicio',
@@ -34,7 +40,9 @@ export class HistoricoInicioComponent implements OnInit {
   constructor(
     private pedidosService: PedidosService,
     private location: Location,
-    private router: Router
+    private router: Router,
+    private printService: PrintService,
+    private dialog: MatDialog,
   ) {
 
     // pegar nosso mes e ano atual
@@ -74,6 +82,33 @@ export class HistoricoInicioComponent implements OnInit {
       this.router.navigate(['/caixa']);
   }
 
+  // print(pedidoUp){
+  //   //enviar esse pedido no localStorage
+  //     localStorage.setItem('codigo', pedidoUp.codigo);
+  //     localStorage.setItem('cliente', pedidoUp.cliente);
+  //     localStorage.setItem('representante', pedidoUp.representante);
+  //     localStorage.setItem('desconto', pedidoUp.desconto);
+  //     localStorage.setItem('tipoPagamento', pedidoUp.tipoPagamento);
+  //     localStorage.setItem('listaProdutos', JSON.stringify(pedidoUp.listaProdutos));
+  //     localStorage.setItem('uid', pedidoUp.uid);
+  
+  //     this.router.navigate(['/caixa']);
+  // }
+
+  // print(pedido){
+
+  //   const print = this.printService.getPrint(pedido);
+  //   const tela_impressao = window.open('about:blank');
+  //   tela_impressao.document.write(print);
+  //   tela_impressao.window.print();
+  //   tela_impressao.window.close();
+  // }
+
+  showDialogPrint(pedido: Pedido){
+    console.log(pedido);
+    const config: MatDialogConfig<any> = {data: {pedido}};
+    this.dialog.open(RomaneioDialogComponent, config);  
+  }
 
   backPage(){
     this.location.back();

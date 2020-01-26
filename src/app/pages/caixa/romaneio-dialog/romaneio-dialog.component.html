@@ -1,0 +1,92 @@
+<h1 mat-dialog-title>Titulo</h1>
+
+<mat-dialog-content class="myDivToPrint" >
+
+    <table>
+        <tr>
+            <td>Código</td>
+            <td>{{pedido.codigo}}</td>
+            <td>Representante</td>
+            <td>{{pedido.representante}}</td>
+        </tr>
+    </table>
+
+    <table>
+        <tr>
+            <td>Cliente</td>
+            <td>{{cliente?.nome}}</td>
+            <td>Tel</td>
+            <td>{{cliente?.fixo}}</td>
+        </tr>
+        <tr>
+            <td>Bairro</td>
+            <td>{{cliente?.bairro}}</td>
+            <td>Cep</td>
+            <td>{{cliente?.cep}}</td>
+        </tr>
+        <tr>
+            <td>End</td>
+            <td>{{cliente?.logradouro}}</td>
+            <td>Número</td>
+            <td>{{cliente?.numero}}</td>
+        </tr>
+        <tr>
+            <td>Cidade</td>
+            <td>{{cliente?.cidade}}</td>
+            <td>Uf</td>
+            <td>{{cliente?.uf}}</td>
+        </tr>
+        <tr>
+            <td>Cnpj</td>
+            <td>{{cliente?.cnpj}}</td>
+            <td>Insc</td>
+            <td>{{cliente?.insc}}</td>
+        </tr>
+    </table>
+
+    <table>
+        <tr>
+            <td>Ref</td>
+            <td>Descrição</td>
+            <td>Qtd</td>
+            <td>Preço</td>
+            <td>Total</td>
+        </tr>
+        <tr *ngFor="let item of pedido.listaProdutos">
+            <td>{{item.cod}}</td>
+            <td>{{item.prod}}</td>
+            <td>{{item.qtd}}</td>
+            <td>{{item.valor | currency: 'BRL'}}</td>
+            <td>{{((item.valor)*(item.qtd))| currency: 'BRL'}}</td>
+        </tr>
+    </table>
+
+
+</mat-dialog-content>
+
+<mat-dialog-actions>
+    <button mat-button mat-dialog-close>Cancelar</button>
+    <a mat-button  href='javascript:window.print()'>Imprimir</a>
+</mat-dialog-actions>
+
+
+
+<!-- 
+bairro: "centro"
+categoria: "cliente"
+celular: " (84) 99670-3800 "
+cep: "58.780-000"
+cidade: "Caraúbas"
+cnpj: "09.399.049/0001-33"
+cpf: ""
+email: ""
+fixo: "  "
+insc: "20.111.767-3"
+logradouro: "Rua Dr, Rafael Fernandes "
+nome: "AMELIA VARIEDADES LTDA MEE"
+numero: "75"
+registrado: "2016-04-02 15:47:43"
+rg: ""
+tipo: "Pessoa_jurídica"
+uf: "Rio Grande do Norte"
+uid: "YakBGS3qmGSC5CpQ1JNh" -->

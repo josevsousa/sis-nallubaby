@@ -10,7 +10,7 @@ import { Observable } from 'rxjs';
 export class InicioComponent implements OnInit {
 
   constructor(
-    private auth: AuthService
+    public auth: AuthService
   ) { }
 
   ngOnInit() {

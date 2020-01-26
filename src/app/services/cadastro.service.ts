@@ -62,6 +62,10 @@ export class CadastroService {
     return this.cadastros.doc<Cadastro>(uid).valueChanges();
   }
 
+  gett(uid: string){
+    console.log(uid)
+  }
+
   codigoVenda(){
     var data = new Date();
     var dia     = data.getDate();           // 1-31

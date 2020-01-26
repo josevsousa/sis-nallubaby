@@ -54,6 +54,7 @@ import { LoginGuard } from "./guards/login.guard";
 import { ClientesComponent } from './pages/clientes-colaboradores/clientes/clientes.component';
 import { ColaboradoresComponent } from './pages/clientes-colaboradores/colaboradores/colaboradores.component';
 import { CadastroDialogComponent } from './pages/clientes-colaboradores/cadastro-dialog/cadastro-dialog.component';
+import { RomaneioDialogComponent } from './pages/caixa/romaneio-dialog/romaneio-dialog.component';
 import { CaixaInicialComponent } from './pages/caixa/caixa-inicial/caixa-inicial.component';
 import { CaixaCadastroComponent } from './pages/caixa/caixa-cadastro/caixa-cadastro.component';
 import { LiItemComponent } from './pages/caixa/components/li-item/li-item.component';
@@ -79,11 +80,13 @@ import { ProdutosListaComponent } from "./pages/produtos/produtos-lista/produtos
     LiItemComponent,
     HistoricoInicioComponent,
     ProdutosTableListComponent,
-    ProdutosListaComponent
+    ProdutosListaComponent,
+    RomaneioDialogComponent
   ],
   entryComponents: [
     ProdutoDialogComponent,
-    CadastroDialogComponent 
+    CadastroDialogComponent,
+    RomaneioDialogComponent
   ],
   imports: [
     // BrowserModule,

@@ -19,8 +19,8 @@ export class CaixaInicialComponent implements OnInit {
   valorTotalDesconto: number = 0;
   tipoPagamento: string;
 
-  nomeBotaoEnvio: string = 'Finalizar Pedido';
-  nomeBotaoDeletar: string = 'delete';
+  nomeBotaoEnvio: string = 'Finalizar';
+  // nomeBotaoDeletar: string = 'delete';
   createPedido: boolean = true;
 
   codigo: string;
@@ -61,10 +61,14 @@ export class CaixaInicialComponent implements OnInit {
       this.valorTotalDesconto = (this.valorTotal - this.desconto);
     };
     if(localStorage.getItem('uid')){
-      this.nomeBotaoEnvio = "Atualizar Pedido";
-      this.nomeBotaoDeletar = "replay";
+      this.nomeBotaoEnvio = "Atualizar";
+      // this.nomeBotaoDeletar = "replay";
       this.createPedido = false;
     }
+  }
+
+  valorParcela(){
+    return (this.valorTotalDesconto)/(parseInt(this.tipoPagamento));
   }
 
   onSelectTipoPagamento(){
@@ -96,6 +100,13 @@ export class CaixaInicialComponent implements OnInit {
       localStorage.clear();
       this.router.navigate([voltar]);
     }
+  }
+
+  print(){
+    //   const tela_impressao = window.open('about:blank');
+    // tela_impressao.document.write("<h1>Print ok</h1>");
+    // tela_impressao.window.print();
+    // tela_impressao.window.close();
   }
 
   finalizarPedido(){
