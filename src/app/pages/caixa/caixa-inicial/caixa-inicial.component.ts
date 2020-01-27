@@ -111,16 +111,16 @@ export class CaixaInicialComponent implements OnInit {
     .subscribe(
       (resp)=> {
         this.cliente = resp;
-        this.res();
+        this.printHtml();
       });
       
   }
-  res(){    
+  printHtml(){    
     const html = (this.printService.telaPrint(this.cliente));
     const tela_impressao = window.open('about:blank');
     tela_impressao.document.write(html);
-    tela_impressao.window.print();
-    tela_impressao.window.close();
+    // tela_impressao.window.print();
+    // tela_impressao.window.close();
   }
 
   finalizarPedido(){
