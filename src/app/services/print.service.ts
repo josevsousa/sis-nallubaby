@@ -15,15 +15,28 @@ export class PrintService {
   telaPrint(cliente){
     const listaProdutos = (JSON.parse(localStorage.getItem('listaProdutos')));
     
-    let html = "";
+    let html = `<style>
+      table { width: 100%; border-collapse: collapse; }
+      th, td { border:1px solid  black; padding: 4px; }
+      img, div { float: left; !important}
+      div { width: 20% }
+      
+    </style>`;
+
+
+    // cabeçalho
+    html += `
+      <img src="/assets/logo.png" />
+      <div>
+        <h3>Nallubaby</h3>nallu.paiva@gmail.com<br>
+        Fernandes Vieira, 234 José Pinheiro Campina Grande PB 
+      </div>
+    `;  
+    // fim do cabeçalho
     
     // lista de itens
-      let htmlItens = `<style>
-        table { width: 100%; border-collapse: collapse; }
-        th, td { border:1px solid  black; padding: 4px; }
-      </style>`;
     
-      htmlItens += "<table>";
+      let htmlItens = "<table>";
       htmlItens += `<thead> 
         <tr >  
           <th>cod</th> 
@@ -45,6 +58,7 @@ export class PrintService {
       });
       htmlItens += "<tbody></table>";
       html += htmlItens;
+  
     // fim do htmlItens
     return html
   }

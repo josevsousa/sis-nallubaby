@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { LoginComponent } from './login/login.component';
 import { InicioComponent } from './inicio/inicio.component';
+import { RomaneioPrintComponent } from "./components/romaneio-print/romaneio-print.component";
 import { ProdutosListaComponent } from './pages/produtos/produtos-lista/produtos-lista.component';
 import { ProdutosTableListComponent } from "./pages/produtos/produtos-table-list/produtos-table-list.component";
 import { ClientesComponent } from './pages/clientes-colaboradores/clientes/clientes.component';
@@ -21,6 +22,7 @@ const routes: Routes = [
   { path: 'clientes', component: ClientesComponent, canActivate: [AuthGuard] },
   { path: 'produtos', component: ProdutosTableListComponent, canActivate: [AuthGuard] },
   { path: 'historico', component: HistoricoInicioComponent, canActivate: [AuthGuard]},
+  { path: 'print', component: RomaneioPrintComponent, canActivate: [AuthGuard]},
   { path: '**', component: InicioComponent, canActivate: [AuthGuard] }  
 ];
 

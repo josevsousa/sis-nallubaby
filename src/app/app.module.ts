@@ -42,7 +42,6 @@ import {
 
 import { CadastroService } from "./services/cadastro.service";
 import { PedidoService } from "./services/pedido.service";
-import { PedidosService } from "./services/pedidos.service";
 
 
 import { AuthComponent } from './components/auth/auth.component';
@@ -54,7 +53,6 @@ import { LoginGuard } from "./guards/login.guard";
 import { ClientesComponent } from './pages/clientes-colaboradores/clientes/clientes.component';
 import { ColaboradoresComponent } from './pages/clientes-colaboradores/colaboradores/colaboradores.component';
 import { CadastroDialogComponent } from './pages/clientes-colaboradores/cadastro-dialog/cadastro-dialog.component';
-import { RomaneioDialogComponent } from './pages/caixa/romaneio-dialog/romaneio-dialog.component';
 import { CaixaInicialComponent } from './pages/caixa/caixa-inicial/caixa-inicial.component';
 import { CaixaCadastroComponent } from './pages/caixa/caixa-cadastro/caixa-cadastro.component';
 import { LiItemComponent } from './pages/caixa/components/li-item/li-item.component';
@@ -62,6 +60,7 @@ import { HistoricoInicioComponent } from './pages/historico/historico-inicio/his
 import { ProdutoDialogComponent } from './pages/produtos/produto-dialog/produto-dialog.component';
 import { ProdutosTableListComponent } from './pages/produtos/produtos-table-list/produtos-table-list.component';
 import { ProdutosListaComponent } from "./pages/produtos/produtos-lista/produtos-lista.component";
+import { RomaneioPrintComponent } from './components/romaneio-print/romaneio-print.component';
 
 
 @NgModule({
@@ -81,12 +80,11 @@ import { ProdutosListaComponent } from "./pages/produtos/produtos-lista/produtos
     HistoricoInicioComponent,
     ProdutosTableListComponent,
     ProdutosListaComponent,
-    RomaneioDialogComponent
+    RomaneioPrintComponent
   ],
   entryComponents: [
     ProdutoDialogComponent,
-    CadastroDialogComponent,
-    RomaneioDialogComponent
+    CadastroDialogComponent
   ],
   imports: [
     // BrowserModule,
@@ -122,8 +120,7 @@ import { ProdutosListaComponent } from "./pages/produtos/produtos-lista/produtos
     LoginGuard,
     ProdutosService,
     CadastroService,
-    PedidoService,
-    PedidosService
+    PedidoService
   ],
   bootstrap: [AppComponent]
 })

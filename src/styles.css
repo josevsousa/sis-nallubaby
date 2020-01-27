@@ -2,6 +2,44 @@
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
 @import url('https://fonts.googleapis.com/css?family=Quicksand&display=swap');
 
+
+@media print {
+    * {
+        background:transparent !important;
+        color:#000 !important;
+        text-shadow:none !important;
+        filter:none !important;
+        -ms-filter:none !important;
+    }
+
+    #tab, #btPrint{
+        display: none;
+    }
+
+    body {
+        margin:0;
+        padding:0;
+        line-height: 1.4em;
+    }
+
+    header {
+        display: none;
+    } 
+
+    footer {
+        display: none;
+    }
+
+    .content {
+        display: block;
+    }
+
+    img {
+        max-width: 100%;
+    }
+}
+
+
 html, body{
     margin: 0px;
     height: 100%;

@@ -1,0 +1,11 @@
+
+
+{{cliente.bairro}}
+
+<div *ngFor="let item of itens">
+    {{item.cod}}
+</div>
+
+<button mat-flat-button color="warn" (click)="print()" id="btPrint">
+    <mat-icon>print</mat-icon>
+</button>

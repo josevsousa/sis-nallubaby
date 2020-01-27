@@ -110,17 +110,24 @@ export class CaixaInicialComponent implements OnInit {
     this.cadastroService.get(idClient)
     .subscribe(
       (resp)=> {
-        this.cliente = resp;
-        this.printHtml();
+        // this.cliente = resp;
+        localStorage.setItem('objClient', JSON.stringify(resp));
+        this.router.navigate(['/print']);
+
       });
       
   }
   printHtml(){    
-    const html = (this.printService.telaPrint(this.cliente));
-    const tela_impressao = window.open('about:blank');
-    tela_impressao.document.write(html);
-    // tela_impressao.window.print();
-    // tela_impressao.window.close();
+
+    // console.log(this.cliente);
+
+    // var Pagelink = "about:blank";
+    // var pwa = window.open(Pagelink, "_new");
+    // pwa.document.open();
+    // pwa.document.write(html);
+    // pwa.print();
+    // pwa.document.close();
+
   }
 
   finalizarPedido(){

@@ -9,7 +9,6 @@ import { take } from "rxjs/operators";
 import { PedidosService } from "../../../services/pedidos.service";
 import { PrintService } from "../../../services/print.service";
 
-import { RomaneioDialogComponent } from "../../caixa/romaneio-dialog/romaneio-dialog.component";
 
 import { MatDialog, MatDialogConfig } from '@angular/material';
 
@@ -104,11 +103,11 @@ export class HistoricoInicioComponent implements OnInit {
   //   tela_impressao.window.close();
   // }
 
-  showDialogPrint(pedido: Pedido){
-    console.log(pedido);
-    const config: MatDialogConfig<any> = {data: {pedido}};
-    this.dialog.open(RomaneioDialogComponent, config);  
-  }
+  // showDialogPrint(pedido: Pedido){
+  //   console.log(pedido);
+  //   const config: MatDialogConfig<any> = {data: {pedido}};
+  //   this.dialog.open(RomaneioDialogComponent, config);  
+  // }
 
   backPage(){
     this.location.back();

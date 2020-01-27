@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { RomaneioDialogComponent } from './romaneio-dialog.component';
+import { RomaneioPrintComponent } from './romaneio-print.component';
 
-describe('RomaneioDialogComponent', () => {
-  let component: RomaneioDialogComponent;
-  let fixture: ComponentFixture<RomaneioDialogComponent>;
+describe('RomaneioPrintComponent', () => {
+  let component: RomaneioPrintComponent;
+  let fixture: ComponentFixture<RomaneioPrintComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ RomaneioDialogComponent ]
+      declarations: [ RomaneioPrintComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(RomaneioDialogComponent);
+    fixture = TestBed.createComponent(RomaneioPrintComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
