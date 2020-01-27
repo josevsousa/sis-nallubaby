@@ -1,10 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from "@angular/router";
 import { Pedido } from "../../../models/pedido.models";
+import { Cadastro } from "../../../models/cadastro.model";
 
 import { PedidoService } from "../../../services/pedido.service";
 import { CadastroService } from "../../../services/cadastro.service";
 import { PedidosService } from "../../../services/pedidos.service";
+import { PrintService } from "../../../services/print.service";
 
 @Component({
   selector: 'app-caixa-inicial',
@@ -18,6 +20,7 @@ export class CaixaInicialComponent implements OnInit {
   desconto: number = 0;
   valorTotalDesconto: number = 0;
   tipoPagamento: string;
+  cliente: Cadastro;
 
   nomeBotaoEnvio: string = 'Finalizar';
   // nomeBotaoDeletar: string = 'delete';
@@ -39,13 +42,12 @@ export class CaixaInicialComponent implements OnInit {
     private router: Router,
     private pedidoService: PedidoService,
     private cadastroService: CadastroService,
-    private pedidosService: PedidosService
+    private pedidosService: PedidosService,
+    private printService: PrintService
   ) { }
 
   ngOnInit(){  
     this.codigo = this.cadastroService.codigoVenda();
-    
-    
     const tp = localStorage.getItem('tipoPagamento');
     if (tp) {
       this.tipoPagamento = tp;
@@ -66,6 +68,7 @@ export class CaixaInicialComponent implements OnInit {
       this.createPedido = false;
     }
   }
+
 
   valorParcela(){
     return (this.valorTotalDesconto)/(parseInt(this.tipoPagamento));
@@ -102,11 +105,22 @@ export class CaixaInicialComponent implements OnInit {
     }
   }
 
-  print(){
-    //   const tela_impressao = window.open('about:blank');
-    // tela_impressao.document.write("<h1>Print ok</h1>");
-    // tela_impressao.window.print();
-    // tela_impressao.window.close();
+  print() {
+    const idClient = localStorage.getItem('cliente');
+    this.cadastroService.get(idClient)
+    .subscribe(
+      (resp)=> {
+        this.cliente = resp;
+        this.res();
+      });
+      
+  }
+  res(){    
+    const html = (this.printService.telaPrint(this.cliente));
+    const tela_impressao = window.open('about:blank');
+    tela_impressao.document.write(html);
+    tela_impressao.window.print();
+    tela_impressao.window.close();
   }
 
   finalizarPedido(){

@@ -35,9 +35,12 @@
             <button mat-flat-button color="warn" (click)="deletePedido()">
                 <mat-icon>delete</mat-icon>
             </button>
-            <a  id="print" href="javascript:window.print()">
+            <button mat-flat-button color="warn" (click)="print()">
                 <mat-icon>print</mat-icon>
-            </a>
+            </button>
+            <!-- <a  id="print" href="javascript:window.print()">
+                <mat-icon>print</mat-icon>
+            </a> -->
             
             <div class="valorTotal">
                 <span class="valorTotal valorTotalColor">Total: {{valorTotal | currency: 'BRL'}}</span> <span *ngIf="desconto"> - Desconto: {{desconto | currency: 'BRL'}} = SubTotal: <span class="valorTotal valorSubTotalColor">{{valorTotalDesconto | currency: 'BRL'}}</span> </span>

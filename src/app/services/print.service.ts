@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { Cadastro } from '../models/cadastro.model';
-import { CadastroService } from "./cadastro.service";
 
 @Injectable({
   providedIn: 'root'
@@ -10,26 +9,27 @@ export class PrintService {
   cliente: Cadastro;
 
   constructor(
-    private cadastroService: CadastroService
   ) { }
 
-  getCliente(pedido){
-    this.cadastroService.get(pedido)
-    .subscribe(
-      (resp)=> {
-        this.cliente = resp;
-      });
-  }
+  
+  telaPrint(cliente){
+    const listaProdutos = (JSON.parse(localStorage.getItem('listaProdutos')));
+    
+    let html = "<table>";
+    html += `<thead> 
+      <tr>  
+        <th>cod</th> 
+      </tr>
+    </thead>`;
 
-  getPrint(pedido){
-    console.log(pedido);
-    //   this.getCliente(pedido);
-    //   this.cadastroService.get(pedido)
-    //   .subscribe(
-    //     (resp)=> {
-    //       console.log(resp);
-    //     });
-    // console.log(this.cliente);
-    return "<h1>Ol Imprimindo!!!</h1>"
+    listaProdutos.forEach(item => {
+      html += `<tbody><tr>
+            <td>${item.cod}</td>
+        </tr></tbody>`
+    });
+
+    html += "</table>";
+    console.log(html);
+    return html
   }
 }
