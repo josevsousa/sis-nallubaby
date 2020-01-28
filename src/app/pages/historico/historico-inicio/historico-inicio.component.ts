@@ -62,7 +62,6 @@ export class HistoricoInicioComponent implements OnInit {
     
   }
 
-
   deletePedido(pedido){
     if(confirm("Tem certeza que deseja deletar esse pedido?")){
       this.pedidosService.delete(pedido);
@@ -80,34 +79,6 @@ export class HistoricoInicioComponent implements OnInit {
       localStorage.setItem('uid', pedidoUp.uid);
       this.router.navigate(['/caixa']);
   }
-
-  // print(pedidoUp){
-  //   //enviar esse pedido no localStorage
-  //     localStorage.setItem('codigo', pedidoUp.codigo);
-  //     localStorage.setItem('cliente', pedidoUp.cliente);
-  //     localStorage.setItem('representante', pedidoUp.representante);
-  //     localStorage.setItem('desconto', pedidoUp.desconto);
-  //     localStorage.setItem('tipoPagamento', pedidoUp.tipoPagamento);
-  //     localStorage.setItem('listaProdutos', JSON.stringify(pedidoUp.listaProdutos));
-  //     localStorage.setItem('uid', pedidoUp.uid);
-  
-  //     this.router.navigate(['/caixa']);
-  // }
-
-  // print(pedido){
-
-  //   const print = this.printService.getPrint(pedido);
-  //   const tela_impressao = window.open('about:blank');
-  //   tela_impressao.document.write(print);
-  //   tela_impressao.window.print();
-  //   tela_impressao.window.close();
-  // }
-
-  // showDialogPrint(pedido: Pedido){
-  //   console.log(pedido);
-  //   const config: MatDialogConfig<any> = {data: {pedido}};
-  //   this.dialog.open(RomaneioDialogComponent, config);  
-  // }
 
   backPage(){
     this.location.back();
