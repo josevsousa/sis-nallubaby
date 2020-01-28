@@ -113,6 +113,7 @@ export class CaixaCadastroComponent implements OnInit {
 
   onQtd(e): void{
     let valor = e.target.value;
+    
     if (valor) {
       this.valorQtd = valor;
     }else{

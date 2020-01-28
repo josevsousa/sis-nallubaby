@@ -3,7 +3,16 @@
         <!-- <button mat-button (click)="backPage()">
             <mat-icon>keyboard_arrow_left</mat-icon>
         </button> -->
-        <h4>Caixa: Codigo({{codigo}})</h4>
+        <h4>COD:[ {{codigo}} ]</h4>
+        <button mat-flat-button color="primary" (click)="finalizarPedido()" >{{nomeBotaoEnvio}}
+                
+        </button>
+        <button mat-flat-button color="warn" (click)="deletePedido()">
+            <mat-icon>delete</mat-icon>
+        </button>
+        <button mat-flat-button color="warn" (click)="print()">
+            <mat-icon>print</mat-icon>
+        </button>
     </div>
 </div>
 <br>
@@ -29,7 +38,7 @@
                     <!-- </optgroup> -->
                 </mat-select>
             </mat-form-field>
-            <button mat-flat-button color="primary" (click)="finalizarPedido()" >{{nomeBotaoEnvio}}
+            <!-- <button mat-flat-button color="primary" (click)="finalizarPedido()" >{{nomeBotaoEnvio}}
                 
             </button>
             <button mat-flat-button color="warn" (click)="deletePedido()">
@@ -37,7 +46,7 @@
             </button>
             <button mat-flat-button color="warn" (click)="print()">
                 <mat-icon>print</mat-icon>
-            </button>
+            </button> -->
             <!-- <a  id="print" href="javascript:window.print()">
                 <mat-icon>print</mat-icon>
             </a> -->

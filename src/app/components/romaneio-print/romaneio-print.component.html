@@ -1,11 +1,128 @@
+<div class="titleFull" id="btPrint">
+    <div class="back-print">
+        <button mat-button (click)="backPage()">
+            <mat-icon>keyboard_arrow_left</mat-icon>
+        </button>
+        <button mat-button (click)="print()">
+            <mat-icon>print</mat-icon>
+            Imprimir
+        </button>
+    </div>
+</div>
+<br>
 
-
-{{cliente.bairro}}
-
-<div *ngFor="let item of itens">
-    {{item.cod}}
+<img src="/assets/logo.png" />
+<div id="dadosEmpresa">
+    <div id="titulo"><b>Nallubaby</b></div>
+     <div id="email">nallu.paiva@gmail.com  (83) 3322-8273</div>
+    <div id="end">Fernandes Vieira, 234 José Pinheiro Campina Grande PB</div> 
 </div>
 
-<button mat-flat-button color="warn" (click)="print()" id="btPrint">
-    <mat-icon>print</mat-icon>
-</button>
+<table>
+    <tbody >
+        <tr>
+            <td class="titleCodRep">Codigo</td>
+            <td>{{codigo}}</td>
+        </tr>
+        <tr>
+            <td class="titleCodRep">Representante</td>
+            <td>{{representante}}</td>
+        </tr>
+    </tbody>
+</table>
+
+<table>
+    <tbody >
+        <tr>
+            <td class="titleCodRep">Cliente</td>
+            <td>{{cliente.nome}}</td>
+            <td class="titleCodRep">Tel</td>
+            <td>{{cliente.fixo}}</td>
+        </tr>
+        <tr>
+            <td class="titleCodRep">Bairro</td>
+            <td>{{cliente.bairro}}</td>
+            <td class="titleCodRep">Cep</td>
+            <td>{{cliente.cep}}</td>
+        </tr>
+        <tr>
+            <td class="titleCodRep">End</td>
+            <td>{{cliente.logradouro}}</td>
+            <td class="titleCodRep">Numero</td>
+            <td>{{cliente.numero}}</td>
+        </tr>
+        <tr>
+            <td class="titleCodRep">Cidade</td>
+            <td>{{cliente.cidade}}</td>
+            <td class="titleCodRep">UF</td>
+            <td>{{cliente.uf}}</td>
+        </tr>
+        <tr>
+            <td class="titleCodRep">CNPJ</td>
+            <td>{{cliente.cnpj}}</td>
+            <td class="titleCodRep">ISNC</td>
+            <td>{{cliente.insc}}</td>
+        </tr>
+    </tbody>
+</table>
+
+<table>
+    <thead> 
+        <tr >  
+          <th>cod</th> 
+          <th>produto</th>
+          <th>qtd</th>
+          <th>valor</th>
+          <th>total</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr *ngFor="let item of itens">
+            <td>{{ item.cod }}</td>
+            <td>{{ item.prod }}</td>
+            <td>{{ item.qtd }}</td>
+            <td>{{ item.valor | currency: 'BRL'}}</td>
+            <td>{{ (item.valor * item.qtd) | currency: 'BRL'}}</td>
+          </tr>
+      </tbody>
+</table>
+
+
+ <ng-container *ngIf="!tipoPagamento == 0">
+     <table>
+         <tbody>
+            <tr>
+                <td class="titleCodRep">Qtd de parcelas</td>
+                <td>{{tipoPagamento}}</td>
+                <td class="titleCodRep">Valor da parcela</td>
+                <td>{{(total-desconto)/tipoPagamento | currency: 'BRL'}}</td>
+            </tr> 
+         </tbody>
+     </table>
+ </ng-container>
+<table>
+    <tbody>
+        <ng-container *ngIf="desconto">
+            <tr>
+                <td class="titleCodRep">Total</td>
+                <td>{{total| currency: 'BRL'}}</td>
+                <td class="titleCodRep">Desconto</td>
+                <td>{{desconto | currency: 'BRL'}}</td>
+                <td class="titleCodRep">Subtotal</td>
+                <td>{{(total - desconto) | currency: 'BRL'}}</td>            
+            </tr>
+        </ng-container>
+        <ng-container *ngIf="!desconto">
+            <tr>
+                <td class="titleCodRep">Total</td>
+                <td>{{total| currency: 'BRL'}}</td>          
+            </tr>
+        </ng-container>
+          
+    </tbody>
+
+</table>
+
+
+
+<h3 style="text-align: center;">nallu.paiva@gmail.com  (83) 3322-8273</h3>

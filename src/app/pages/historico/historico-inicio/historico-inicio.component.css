@@ -8,11 +8,12 @@ thead{
 
 .mat-form-field{
   float: left;
-  width: 49%;
+  /* width: 49%; */
  } 
 
 .anoMes {
-  width: 60%;
+  width: 85%;
+  display: flow-root;
   margin: 0 auto;
 }
 
@@ -25,4 +26,8 @@ table th {
   background: whitesmoke;
   padding: 5px;
   color: #848484;
+}
+
+mat-form-field {
+  width: 49%;
 }

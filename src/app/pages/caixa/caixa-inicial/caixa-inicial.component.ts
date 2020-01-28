@@ -44,18 +44,24 @@ export class CaixaInicialComponent implements OnInit {
     private cadastroService: CadastroService,
     private pedidosService: PedidosService,
     private printService: PrintService
-  ) { }
+  ) {  }
 
   ngOnInit(){  
+    this.ngInit();
+  }
+
+  ngInit(){
     this.codigo = this.cadastroService.codigoVenda();
     const tp = localStorage.getItem('tipoPagamento');
     if (tp) {
       this.tipoPagamento = tp;
     } else {
       this.tipoPagamento = "0";
+      localStorage.setItem('tipoPagamento', "0");
     }
 
-    console.log(this.tipoPagamento);
+    console.log("inicilizando o caixaaaa: "+this.tipoPagamento);
+    
 
     this.atualizar();
     if(localStorage.getItem('desconto')){
@@ -106,16 +112,18 @@ export class CaixaInicialComponent implements OnInit {
   }
 
   print() {
-    const idClient = localStorage.getItem('cliente');
-    this.cadastroService.get(idClient)
-    .subscribe(
-      (resp)=> {
-        // this.cliente = resp;
-        localStorage.setItem('objClient', JSON.stringify(resp));
-        this.router.navigate(['/print']);
+    if(this.validandoBotaoEnviar()){
+  
+      const idClient = localStorage.getItem('cliente');
+      this.cadastroService.get(idClient)
+      .subscribe(
+        (resp)=> {
+          // this.cliente = resp;
+          localStorage.setItem('objClient', JSON.stringify(resp));
+          this.router.navigate(['/print']);
 
-      });
-      
+        });   
+    }   
   }
   printHtml(){    
 
@@ -198,7 +206,6 @@ export class CaixaInicialComponent implements OnInit {
       btEnviar = true;
     }
    
-    console.log(btEnviar); 
     return btEnviar;
   }
 }

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from "../services/auth.service";
 import { Observable } from 'rxjs';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-inicio',
@@ -10,7 +11,8 @@ import { Observable } from 'rxjs';
 export class InicioComponent implements OnInit {
 
   constructor(
-    public auth: AuthService
+    public auth: AuthService,
+    private router: Router 
   ) { }
 
   ngOnInit() {
@@ -21,6 +23,7 @@ export class InicioComponent implements OnInit {
   setStep(index: number) {
     this.step = index;
   }
+
 
   nextStep() {
     this.step++;

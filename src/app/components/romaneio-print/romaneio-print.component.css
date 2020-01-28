@@ -1,0 +1,31 @@
+table { 
+    width: -webkit-fill-available;
+    display: inline-table;
+    margin: 7px;
+    text-align: center;
+    border-collapse: collapse;
+}
+th, td { border:1px solid #676767; }
+th { padding: 4px; }
+td {  padding: 2px; }
+img { float: left;} 
+#dadosEmpresa { 
+    float: left !important;
+    padding-top: 29px;
+}
+
+/* div { width: 20% } */
+
+.back-print {
+    width: 191px !important;
+}
+.back-print button{
+    margin-left: 6px !important;
+}
+
+
+.titleCodRep {
+    font-weight: 600;
+    text-align: right;
+    padding-right: 7px;
+}
