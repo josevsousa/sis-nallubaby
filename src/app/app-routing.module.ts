@@ -14,7 +14,7 @@ import { AuthGuard } from "./guards/auth.guard";
 import { LoginGuard } from "./guards/login.guard";
 
 const routes: Routes = [
-  { path: ' ', redirectTo:'inicio', pathMatch: 'full', canActivate: [AuthGuard]},
+  { path: '', redirectTo:'login', pathMatch: 'full', canActivate: [LoginGuard]},
   { path: 'inicio',  component: InicioComponent, canActivate: [AuthGuard] },
   { path: 'login',  component: LoginComponent, canActivate: [LoginGuard]},
   { path: 'caixa', component: CaixaInicialComponent, canActivate: [AuthGuard] },
@@ -23,7 +23,7 @@ const routes: Routes = [
   { path: 'produtos', component: ProdutosTableListComponent, canActivate: [AuthGuard] },
   { path: 'historico', component: HistoricoInicioComponent, canActivate: [AuthGuard]},
   { path: 'print', component: RomaneioPrintComponent, canActivate: [AuthGuard]},
-  { path: '**', component: InicioComponent, canActivate: [AuthGuard] }  
+  // { path: '**', component: InicioComponent, canActivate: [AuthGuard] }  
 ];
 
 @NgModule({
