@@ -51,7 +51,8 @@ export class ColaboradoresComponent implements OnInit {
   onDelete(cadastro: Cadastro): void {
     // console.log('ddd');
     if(confirm("Tem serza que deseja Deletar?")){
-      this.cadastroService.delete(cadastro);
+      console.log(cadastro);
+      // this.cadastroService.delete(cadastro);
     } 
   }
 

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from "../services/auth.service";
+import { ProdutosService } from "../services/produtos.service";
 import { Observable } from 'rxjs';
 import { Router } from '@angular/router';
 
@@ -12,6 +13,7 @@ export class InicioComponent implements OnInit {
 
   constructor(
     public auth: AuthService,
+    public produtosService: ProdutosService,
     private router: Router 
   ) { }
 
