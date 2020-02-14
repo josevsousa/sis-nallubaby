@@ -8,12 +8,15 @@ import { CadastroService } from "../../../services/cadastro.service";
 import { PedidosService } from "../../../services/pedidos.service";
 import { PrintService } from "../../../services/print.service";
 
+
 @Component({
   selector: 'app-caixa-inicial',
   templateUrl: './caixa-inicial.component.html',
   styleUrls: ['./caixa-inicial.component.css']
 })
 export class CaixaInicialComponent implements OnInit {
+
+ 
 
   listaProdutos: Array<any>;
   valorTotal: number;
@@ -124,18 +127,6 @@ export class CaixaInicialComponent implements OnInit {
 
         });   
     }   
-  }
-  printHtml(){    
-
-    // console.log(this.cliente);
-
-    // var Pagelink = "about:blank";
-    // var pwa = window.open(Pagelink, "_new");
-    // pwa.document.open();
-    // pwa.document.write(html);
-    // pwa.print();
-    // pwa.document.close();
-
   }
 
   finalizarPedido(){

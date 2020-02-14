@@ -1,22 +1,69 @@
-mat-form-field.CR {
-    width: 100%;
+.cr {
+  width: 47%;
+  display: inline-block;
+  margin: 2px;
 }
 
-mat-form-field.cod {
+mat-form-field {
+  display: contents !important;
+}
+
+.body{
+  /* background-color: aquamarine; */
+  /* margin-left: 10px; */
+  padding: 5px;
+  background: whitesmoke;
+}
+/* LISTA BODY */
+.body ul li {
+  list-style: none;
+}
+.body ul {
+  padding: 0;
+  margin: 0;
+}
+app-caixa-cadastro {
+  display: flex;
+}
+/* FIM DA LISTA DO BODY */
+
+.addItem {
+  display: flex;
+}
+
+div#cod{
+  width: 35%;
+  margin-right: 5px;
+}
+div#qtd {
+  width: 35%;
+  margin-right: 6px;
+}
+div#botao {
+  width: 25%;
+  height: 45px;
+  display: grid;
+}
+
+/* mat-form-field.CR {
+    width: 100%;
+} */
+
+/* mat-form-field.cod {
     width: 67%;
 }
 
 mat-form-field.qtd {
     width: 29%;
-}
+} */
 
-button.adicionar{
+/* button.adicionar{
     margin: 0 auto;
     display: flex;
     padding: 10px 61px;
     font-size: x-large;
     margin-top: 29px;
-}
+} */
 
 
 .valorUnidade {
@@ -29,7 +76,7 @@ mat-hint#mat-hint-0 {
   font-size: larger;
 }
 
-.viewItemAtual {
+/* .viewItemAtual {
     float: right;
 }
-
+ */

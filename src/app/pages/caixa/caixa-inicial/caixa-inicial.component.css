@@ -1,16 +1,21 @@
-.global{
+.DP {
     display: flex;
 }
-.form, .list {
-    padding: 12px;
-    width: 35%;
+.DP_valorParcela {
+    margin: 19px 10px;
+    font-size: larger;
+    color: #1f81dc;
+}
+.view-display {
+    background: #deecf9;
+    padding: 6px;
 }
 
 
 /* LISTA DE INTENS PRODUTO */
 .list {
-    padding: 12px;
-    width: 65%;
+    padding: 10px;
+    /* width: 65%; */
 }
 ul.lista-produtos {
     list-style: none;
@@ -42,6 +47,19 @@ li.headerList div {
 /* FIM DA LISTA DE INTENS PRODUTO */
 
 
+.valorTotal{
+    text-align: center;
+    background: aliceblue;
+    padding: 7px;
+    display: flex;
+}
+.vSubTotal {
+    font-weight: 500;
+    color: #025ba9;
+}
+.valorTotal div {
+    width: 33%;
+}
 .desconto {
     width: 22%;
 }
@@ -59,10 +77,18 @@ span.valorTotal {
     font-size: 1.16em;
 }
 button.mat-flat-button {
-    margin: 3px 8px 14px 6px;
+    margin: 0px 8px 54px 0px;
 }
 
 #print{
     background: bisque;
-    
+}
+
+.titleFullCod>h4 {
+    text-align: center;
+    margin: 0px;
+    padding: 5px;
+    background: #efefef;
+    font-size: smaller;
+    color: dimgrey;
 }

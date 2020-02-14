@@ -1,63 +1,66 @@
-<div class="titleFull">
-    <div>
-        <!-- <button mat-button (click)="backPage()">
-            <mat-icon>keyboard_arrow_left</mat-icon>
-        </button> -->
-        <h4>COD:[ {{codigo}} ]</h4>
-        <button mat-flat-button color="primary" (click)="finalizarPedido()" >{{nomeBotaoEnvio}}
-                
-        </button>
-        <button mat-flat-button color="warn" (click)="deletePedido()">
-            <mat-icon>{{nomeBotaoDeletar}}</mat-icon>
-        </button>
-        <button mat-flat-button color="warn" (click)="print()">
-            <mat-icon>print</mat-icon>
-        </button>
-    </div>
+<div class="titleFullCod">
+    <h4>COD:[ {{codigo}} ]</h4>
 </div>
 <br>
+
+
 <div class="global">
-    <div class="form">
-        <!-- formulario cadastro  -->
-        <app-caixa-cadastro (adicionado)="atualizar()"></app-caixa-cadastro>
-    </div>
     <div class="list">
         <div class="view-display">
-            <mat-form-field class="example-full-width desconto">
-                <input matInput type="number" placeholder="Desconto" [min]="0" [value]="desconto" (keyup)="addDesconto($event.target.value)">
-            </mat-form-field>
-            <mat-form-field class="parcelas" id="tipoPagamento">
-                <mat-label>Tipo de pagamento</mat-label>
-                <mat-select matNativeControl [(value)]="tipoPagamento" require (selectionChange)="onSelectTipoPagamento()">
-                    <mat-option value="0">A vista</mat-option>
-                    <!-- <optgroup label="Cheques"> -->
-                    <mat-option value="2">Cheque 2X</mat-option>
-                    <mat-option value="3">Cheque 3X</mat-option>
-                    <mat-option value="4">Cheque 4X</mat-option>
-                    <mat-option value="5">Cheque 5X</mat-option>
-                    <!-- </optgroup> -->
-                </mat-select>
-            </mat-form-field>
-            <!-- <button mat-flat-button color="primary" (click)="finalizarPedido()" >{{nomeBotaoEnvio}}
-                
-            </button>
-            <button mat-flat-button color="warn" (click)="deletePedido()">
-                <mat-icon>delete</mat-icon>
-            </button>
-            <button mat-flat-button color="warn" (click)="print()">
-                <mat-icon>print</mat-icon>
-            </button> -->
-            <!-- <a  id="print" href="javascript:window.print()">
-                <mat-icon>print</mat-icon>
-            </a> -->
-            
+            <div class="DP">
+                <!-- <div class="DP_desconto"> -->
+                    <!-- desconto -->
+                    <mat-form-field class="example-full-width desconto">
+                        <input matInput type="number" placeholder="Desconto" [min]="0" [value]="desconto"
+                            (keyup)="addDesconto($event.target.value)">
+                    </mat-form-field>
+                <!-- </div> -->
+                <!-- <div class="DP_parcelas"> -->
+                    <!-- parcelas -->
+                    <mat-form-field class="parcelas" id="tipoPagamento">
+                        <mat-label>Tipo de pagamento</mat-label>
+                        <mat-select matNativeControl [(value)]="tipoPagamento" require
+                            (selectionChange)="onSelectTipoPagamento()">
+                            <mat-option value="0">A vista</mat-option>
+                            <mat-option value="2">Cheque 2X</mat-option>
+                            <mat-option value="3">Cheque 3X</mat-option>
+                            <mat-option value="4">Cheque 4X</mat-option>
+                            <mat-option value="5">Cheque 5X</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                <!-- </div> -->
+                <!-- <div class=""> -->
+                    <!-- valorParcelas -->
+                    <div class="DP_valorParcela"  *ngIf="tipoPagamento != '0'">
+                        <span>Parcela:{{ valorParcela() | currency: 'BRL' }}</span>
+                    </div>    
+
+                    <div class="DP_valorParcela" *ngIf="tipoPagamento == '0'">
+                        <span> - - - </span>
+                    </div>
+            </div>   
+              <!-- <span class="valorTotal valorTotalColor">Total: {{valorTotal | currency: 'BRL'}}</span> <span
+                    *ngIf="desconto"> - Desconto: {{desconto | currency: 'BRL'}} = SubTotal: <span
+                        class="valorTotal valorSubTotalColor">{{valorTotalDesconto | currency: 'BRL'}}</span> </span>
+                c
+                    Valor da parcela : ( {{tipoPagamento}} x <span
+                        class="valorTotal valorSubTotalColor">{{ valorParcela() | currency: 'BRL' }}</span> )
+                </div> -->
             <div class="valorTotal">
-                <span class="valorTotal valorTotalColor">Total: {{valorTotal | currency: 'BRL'}}</span> <span *ngIf="desconto"> - Desconto: {{desconto | currency: 'BRL'}} = SubTotal: <span class="valorTotal valorSubTotalColor">{{valorTotalDesconto | currency: 'BRL'}}</span> </span>
-                <div *ngIf="tipoPagamento != '0'">
-                    Valor da parcela : ( {{tipoPagamento}} x <span class="valorTotal valorSubTotalColor">{{ valorParcela() | currency: 'BRL' }}</span> )
+                <div class="vTotal">
+                    Total: {{valorTotal | currency: 'BRL'}}
                 </div>
-              </div>
+                <div class="vDesc">
+                    Desconto: {{( desconto + 0) | currency: 'BRL'}}
+                </div>
+                <div class="vSubTotal">
+                    Sub-Total: {{valorTotalDesconto | currency: 'BRL'}}
+                </div>
+              
+            </div>
         </div>
+        <br>
+        <app-caixa-cadastro (adicionado)="atualizar()"></app-caixa-cadastro>
         <ul class="lista-produtos">
             <li class="headerList">
                 <div class="codigo">cod</div>
@@ -68,10 +71,19 @@
                 <div class="btDelete"></div>
             </li>
             <li *ngFor="let item of listaProdutos, let i = index" [ngClass]="liZebra(i)">
-                <!-- component item -->
-                <app-li-item [index]="i" [item]="item" (deleteUpdate)="atualizar()"></app-li-item>
+                <!-- component item  -->
+                <app-li-item [index]="i" [item]="item" (deleteUpdate)="addDesconto(0)"></app-li-item>
             </li>
-            
         </ul>
+        <div class="fecharCaixa">
+            <button mat-flat-button color="primary" (click)="finalizarPedido()">{{nomeBotaoEnvio}}
+            </button>
+            <button mat-flat-button color="warn" (click)="deletePedido()">
+                <mat-icon>{{nomeBotaoDeletar}}</mat-icon>
+            </button>
+            <button mat-flat-button color="warn" (click)="print()">
+                <mat-icon>print</mat-icon>
+            </button>
+        </div>
     </div>
 </div>
