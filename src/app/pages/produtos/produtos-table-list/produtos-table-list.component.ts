@@ -10,7 +10,7 @@ import { MatTableDataSource } from '@angular/material/table';
 /// fim table -------------------------------------------
 
 // dialog -----------------------------------------------
-import { MatDialog, MatDialogConfig } from "@angular/material";
+import { MatDialog, MatDialogConfig } from "@angular/material/dialog";
 import { ProdutoDialogComponent } from '../produto-dialog/produto-dialog.component';
 // fim dialog --------------------------------------------
 

@@ -5,7 +5,7 @@ import { take } from "rxjs/operators";
 
 import { Produto } from "../../../models/produtos.model";
 import { ProdutosService } from '../../../services/produtos.service';
-import { MatDialog, MatDialogConfig } from '@angular/material';
+import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { ProdutoDialogComponent } from '../produto-dialog/produto-dialog.component';
 
 @Component({

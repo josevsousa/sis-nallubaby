@@ -10,7 +10,7 @@ import { PedidosService } from "../../../services/pedidos.service";
 import { PrintService } from "../../../services/print.service";
 
 
-import { MatDialog, MatDialogConfig } from '@angular/material';
+import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 
 
 @Component({

@@ -123,5 +123,8 @@
       }
     }
   },
-  "defaultProject": "sis-nallubaby"
+  "defaultProject": "sis-nallubaby",
+  "cli": {
+    "analytics": "5d7e36d7-f180-4a25-a950-9632a45144b3"
+  }
 }

@@ -7,7 +7,7 @@ import { Cadastro } from '../../../models/cadastro.model';
 import { CadastroService } from '../../../services/cadastro.service';
 import { CadastroDialogComponent } from '../cadastro-dialog/cadastro-dialog.component';
 
-import { MatDialog, MatDialogConfig } from '@angular/material';
+import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 
 
 
