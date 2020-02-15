@@ -8,6 +8,7 @@ import { CadastroService } from "../../../services/cadastro.service";
 import { PedidosService } from "../../../services/pedidos.service";
 import { PrintService } from "../../../services/print.service";
 
+import { ConnectionService } from 'ng-connection-service';
 
 @Component({
   selector: 'app-caixa-inicial',
@@ -31,6 +32,8 @@ export class CaixaInicialComponent implements OnInit {
 
   codigo: string;
 
+  isConnected: boolean = true;
+
   pedido: Pedido = {
     codigo: '',
     cliente: '',
@@ -42,12 +45,18 @@ export class CaixaInicialComponent implements OnInit {
   };
 
   constructor(
+    public connectionService: ConnectionService,
     private router: Router,
     private pedidoService: PedidoService,
     private cadastroService: CadastroService,
     private pedidosService: PedidosService,
     private printService: PrintService
-  ) {  }
+  ) { 
+    // ferifica conexão
+    this.connectionService.monitor().subscribe(isConnected => {
+      this.isConnected = isConnected;
+    });
+   }
 
   ngOnInit(){  
     this.ngInit();
@@ -130,7 +139,7 @@ export class CaixaInicialComponent implements OnInit {
   }
 
   finalizarPedido(){
-    console.log(this.validandoBotaoEnviar);
+    // console.log(this.validandoBotaoEnviar);
     if(this.validandoBotaoEnviar()){
         this.pedido = {
           codigo: localStorage.getItem('codigo'),
@@ -142,26 +151,31 @@ export class CaixaInicialComponent implements OnInit {
           dataCreate: new Date()
         };
         if(this.createPedido){
-            console.log("criar pedido");
-            //enviar ao firebase
-            this.pedidosService.create(this.pedido)
-              .then(()=>{
-                localStorage.clear();
-                this.router.navigate(['/historico']);
-            });
+            // if(this.isConnected){
+
+            // }else{
+
+            // };
+            // espera o registro no firebase
+              this.pedidosService.create(this.pedido);
+                // .then(()=>{
+                  // localStorage.clear();
+                  // this.router.navigate(['/historico']);
+                // });      
+              localStorage.clear();
+              this.router.navigate(['/historico']);        
+            // fim epera o registro no firebase
         }else{
            this.pedido.uid = localStorage.getItem('uid');
            this.pedido.listaProdutos = JSON.parse(localStorage.getItem('listaProdutos'));
           // updates no firestore
-          this.pedidosService.update(this.pedido)
-            .then(()=>{
-              console.log("foi alterado?");
-              localStorage.clear();
-              this.router.navigate(['/historico']);
-            })
-            .catch((error)=>{
-              console.log("tipo de erro : " + error)
-            }) 
+          this.pedidosService.update(this.pedido);
+            // .then(()=>{
+            //   localStorage.clear();
+            //   this.router.navigate(['/historico']);
+            // })
+            localStorage.clear();
+            this.router.navigate(['/historico']);
         } 
      }
   }

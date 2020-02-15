@@ -58,6 +58,7 @@ import { ProdutoDialogComponent } from './pages/produtos/produto-dialog/produto-
 import { ProdutosTableListComponent } from './pages/produtos/produtos-table-list/produtos-table-list.component';
 import { ProdutosListaComponent } from "./pages/produtos/produtos-lista/produtos-lista.component";
 import { RomaneioPrintComponent } from './components/romaneio-print/romaneio-print.component';
+import { ServiceWorkerModule } from '@angular/service-worker';
 
 
 @NgModule({
@@ -109,7 +110,8 @@ import { RomaneioPrintComponent } from './components/romaneio-print/romaneio-pri
     MatSelectModule,
     MatProgressSpinnerModule,
     MatPaginatorModule,
-    MatCardModule
+    MatCardModule,
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
   providers: [
     AuthService,
