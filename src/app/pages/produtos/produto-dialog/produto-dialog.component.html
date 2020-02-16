@@ -1,34 +1,35 @@
 <h1 mat-dialog-title>{{ dialogTitle }}</h1>
 
+  
 <mat-dialog-content>
+    <form [formGroup]="form_produtos">  
     <ol>
         <li>
             <mat-form-field>
-                <input type="number" placeholder="código" [disabled]="atualizarProduto"  matInput [(ngModel)]="novoProduto.codigo" required minlength="3"
-                    #titleControl="ngModel">
+                <input type="number" placeholder="código" [disabled]="atualizarProduto"  matInput formControlName="codigo">
             </mat-form-field>
         </li>
         <li>
             <mat-form-field>
-                <input type="text" placeholder="Nome" matInput [(ngModel)]="novoProduto.nome" required minlength="3"
-                    #titleControl="ngModel">
+                <input type="text" placeholder="Nome" matInput formControlName="nome">
             </mat-form-field>
         </li>
         <li>
             <mat-form-field>
-                <input type="number" placeholder="Valor" matInput [(ngModel)]="novoProduto.valor" required minlength="3"
-                    #titleControl="ngModel">
+                <input type="number" placeholder="Valor" matInput formControlName="valor">
             </mat-form-field>
         </li>
         <li>
             <mat-form-field>
-                <input type="text" placeholder="Descrição" matInput [(ngModel)]="novoProduto.descricao"  minlength="3">
+                <input type="text" placeholder="Descrição" matInput formControlName="descricao">
             </mat-form-field>
         </li>
     </ol>
+
+    <mat-dialog-actions>
+        <button mat-button mat-dialog-close>Cancelar</button>
+        <button mat-button [disabled]="form_produtos.invalid" (click)="onSave()">Salvar</button>
+    </mat-dialog-actions>
+</form>
 </mat-dialog-content>
 
-<mat-dialog-actions>
-    <button mat-button mat-dialog-close>Cancelar</button>
-    <button mat-button [disabled]="titleControl.invalid" (click)="onSave()">Salvar</button>
-</mat-dialog-actions>
