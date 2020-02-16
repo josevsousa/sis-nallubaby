@@ -12,10 +12,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 export class ProdutoDialogComponent implements OnInit {
 
   dialogTitle = "Novo Produto";
-
   form_produtos: FormGroup;
-
-  atualizarProduto = false;
   
   constructor(
     //injetando dados no dialog
@@ -39,7 +36,6 @@ export class ProdutoDialogComponent implements OnInit {
     // se vinher dados no data do dialog
     if(this.data){
       this.dialogTitle = 'Registros do produto';
-      this.atualizarProduto = true;
       // add o data.produto ao form
       this.form_produtos = this.fb.group({
         codigo: [{ value: this.data.produto.codigo, disabled: true } ,Validators.compose([

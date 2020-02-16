@@ -24,12 +24,12 @@ export class CadastroService {
     }
 
   create(cadastro: Cadastro): Promise<void> {
+    console.log(cadastro);
     const uid = this.db.createId();
     return this.cadastros.doc<Cadastro>(uid)
       .set({
         uid,
         categoria: cadastro.categoria,
-        tipo: cadastro.tipo,
         nome: (cadastro.nome).toLocaleLowerCase(),
         celular: cadastro.celular,
         fixo: cadastro.fixo,

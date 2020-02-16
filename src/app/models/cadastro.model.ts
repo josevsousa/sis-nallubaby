@@ -1,6 +1,5 @@
 export interface Cadastro{
     uid?: string;
-    tipo?: string;
     categoria?: string; // cliente, colaborador
     nome: string;
     celular: string;

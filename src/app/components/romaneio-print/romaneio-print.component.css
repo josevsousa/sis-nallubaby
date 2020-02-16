@@ -1,3 +1,4 @@
+
 table { 
     width: -webkit-fill-available;
     display: inline-table;
@@ -11,7 +12,8 @@ td {  padding: 2px; }
 img { float: left;} 
 #dadosEmpresa { 
     float: left !important;
-    padding-top: 29px;
+    padding: 29px 0px 0px 11px;
+
 }
 
 /* div { width: 20% } */

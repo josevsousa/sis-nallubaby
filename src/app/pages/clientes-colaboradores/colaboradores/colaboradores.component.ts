@@ -48,11 +48,9 @@ export class ColaboradoresComponent implements OnInit {
     this.dialog.open(CadastroDialogComponent, config);  
   }
 
-  onDelete(cadastro: Cadastro): void {
-    // console.log('ddd');
+  onDelete(cadastro: Cadastro) {
     if(confirm("Tem serza que deseja Deletar?")){
-      console.log(cadastro);
-      // this.cadastroService.delete(cadastro);
+      this.cadastroService.delete(cadastro);
     } 
   }
 

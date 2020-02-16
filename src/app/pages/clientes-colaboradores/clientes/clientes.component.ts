@@ -35,7 +35,6 @@ export class ClientesComponent implements OnInit {
           // if(i.categoria != ''){
             this.cadastroService.update({
               uid: i.uid,
-              tipo: i.tipo,
               categoria: 'cliente',  // cliente, colaborador
               nome: i.nome,
               celular: i.celular,
