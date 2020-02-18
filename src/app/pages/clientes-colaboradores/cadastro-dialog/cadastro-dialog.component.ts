@@ -3,7 +3,9 @@ import { Cadastro } from '../../../models/cadastro.model';
 import { CadastroService } from '../../../services/cadastro.service';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 
-import { FormGroup, FormBuilder, Validators } from "@angular/forms";
+import { FormGroup, FormBuilder, Validators, FormControl } from "@angular/forms";
+
+import { Validacoes } from "../cadastro-form-validators/cadastro-form-validators";
 
 @Component({
   selector: 'app-cadastro-dialog',
@@ -24,27 +26,29 @@ export class CadastroDialogComponent implements OnInit {
     ) { }
 
     ngOnInit() {
+      // inicia modelo do form cadastro
       this.form_cadastros = this.formBuilder.group({
-        nome: [ '', Validators.compose([ Validators.required, Validators.minLength(3) ])],
-        categoria: [ '', Validators.required ],
-        celular:  ['', Validators.compose([ Validators.required, Validators.minLength(3) ])],
-        fixo:  [''],
-        email:  [''],
-        rg:  [''],
-        cpf:  [''],
-        cnpj: [''],
-        insc: [''],
-        cep: [''],
-        uf: [''],
-        bairro: [''],
-        cidade: [''],
-        logradouro: [''],
-        numero: [''],
-        registrado: [''],
+        nome: [ null, Validators.compose([ Validators.required, Validators.minLength(3) ])],
+        categoria: [ null, Validators.required ],
+        celular:  [null, Validators.compose([ Validators.required, Validators.minLength(3) ])],
+        fixo:  [null],
+        email:  [null],
+        rg:  [null],
+        cpf:  ["", Validacoes.ValidaCpf ], // e "" poque nao e obrigatorio
+        cnpj: [null],
+        insc: [null],
+        cep: [null],
+        uf: [null],
+        bairro: [null],
+        cidade: [null],
+        logradouro: [null],
+        numero: [null],
+        registrado: [null],
       });
-      // this.form_cadastros.controls.set.value({nome: 'jose'})
-      // this.form_cadastros.setValue();
+
+      // se vinher um formulario preechido add os valores no form_cadastro
       if(this.data){
+        console.log(this.data);
         this.form_cadastros = this.formBuilder.group({
           nome: [ this.data.cadastro.nome , Validators.compose([ Validators.required, Validators.minLength(3) ])],
           categoria: [ this.data.cadastro.categoria, Validators.required ],
@@ -52,7 +56,7 @@ export class CadastroDialogComponent implements OnInit {
           fixo:  [this.data.cadastro.fixo],
           email:  [this.data.cadastro.email],
           rg:  [this.data.cadastro.rg],
-          cpf:  [this.data.cadastro.cpf],
+          cpf:  [this.data.cadastro.cpf, Validacoes.ValidaCpf],
           cnpj: [this.data.cadastro.cnpj],
           insc: [this.data.cadastro.insc],
           cep: [this.data.cadastro.cep],

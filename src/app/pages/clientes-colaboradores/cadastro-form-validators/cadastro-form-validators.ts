@@ -4,6 +4,7 @@ export class Validacoes {
   static ValidaCpf(controle: AbstractControl) {
     const cpf = controle.value;
 
+
     let soma: number = 0;
     let resto: number;
     let valido: boolean;
@@ -22,11 +23,12 @@ export class Validacoes {
       cpf == '88888888888' ||
       cpf == '99999999999' ||
       !regex.test(cpf)
-    )
+    ){
       valido = false;
-    else {
-      for (let i = 1; i <= 9; i++)
+    } else {
+      for (let i = 1; i <= 9; i++){
         soma = soma + parseInt(cpf.substring(i - 1, i)) * (11 - i);
+      }  
       resto = (soma * 10) % 11;
 
       if (resto == 10 || resto == 11) resto = 0;
@@ -38,27 +40,34 @@ export class Validacoes {
       resto = (soma * 10) % 11;
 
       if (resto == 10 || resto == 11) resto = 0;
-      if (resto != parseInt(cpf.substring(10, 11))) valido = false;
-      valido = true;
+      if (resto != parseInt(cpf.substring(10, 11))){ 
+        valido = false;
+      }else{
+        valido = true;
+      }
     }
 
+
     if (valido) return null;
+
+    // nao e requerido
+    if (cpf == "" || cpf == " ") return true; 
 
     return { cpfInvalido: true };
   }
 
-  static MaiorQue18Anos(controle: AbstractControl) {
-    const nascimento = controle.value;
-    const [ano, mes, dia] = nascimento.split('-');
-    const hoje = new Date();
-    const dataNascimento = new Date(ano, mes, dia, 0, 0, 0);
-    const tempoParaTeste = 1000 * 60 * 60 * 24 * 365 * 18; //18 anos em mili segundos...
+  // static MaiorQue18Anos(controle: AbstractControl) {
+  //   const nascimento = controle.value;
+  //   const [ano, mes, dia] = nascimento.split('-');
+  //   const hoje = new Date();
+  //   const dataNascimento = new Date(ano, mes, dia, 0, 0, 0);
+  //   const tempoParaTeste = 1000 * 60 * 60 * 24 * 365 * 18; //18 anos em mili segundos...
 
-    if (hoje.getTime() - dataNascimento.getTime() >= tempoParaTeste)
-      return null;
+  //   if (hoje.getTime() - dataNascimento.getTime() >= tempoParaTeste)
+  //     return null;
 
-    return { menorDeIdade: true };
-  }
+  //   return { menorDeIdade: true };
+  // }
 
 //   static SenhasCombinam(controle: AbstractControl) {
 //     let senha = controle.get('senha').value;
