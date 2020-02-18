@@ -60,6 +60,9 @@ import { ProdutosListaComponent } from "./pages/produtos/produtos-lista/produtos
 import { RomaneioPrintComponent } from './components/romaneio-print/romaneio-print.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
 
+import { NgxMaskModule, IConfig } from "ngx-mask";
+
+export let options: Partial<IConfig> | (() => Partial<IConfig>);
 
 @NgModule({
   declarations: [
@@ -93,6 +96,7 @@ import { ServiceWorkerModule } from '@angular/service-worker';
     AngularFirestoreModule.enablePersistence(),
     FormsModule,
     ReactiveFormsModule,
+    NgxMaskModule.forRoot(options),
     AppRoutingModule,
     MatToolbarModule,
     MatButtonModule,

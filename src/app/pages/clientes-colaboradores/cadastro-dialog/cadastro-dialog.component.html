@@ -21,10 +21,10 @@
 
 
         <mat-form-field class="celular">
-            <input type="string" placeholder="celular" matInput formControlName="celular">
+            <input type="string" placeholder="celular"  mask="(00) 00000-0000" matInput formControlName="celular">
         </mat-form-field>    
         <mat-form-field class="fixo">
-            <input type="string" placeholder="fixo" matInput formControlName="fixo" >
+            <input type="string" placeholder="fixo" mask="(00) 0000-0000" matInput formControlName="fixo" >
         </mat-form-field>
 
         <!-- ========================================= -->       
@@ -34,16 +34,16 @@
         </mat-form-field>
 
         <mat-form-field class="rg">
-            <input type="string"  placeholder="rg" matInput formControlName="rg">
+            <input type="string"  placeholder="rg" mask="00.000.000-0" matInput formControlName="rg">
         </mat-form-field>
 
         <mat-form-field class="cpf">
-            <input type="string" placeholder="cpf" matInput formControlName="cpf">
+            <input type="string" placeholder="cpf" mask="000.000.000-99" matInput formControlName="cpf">
         </mat-form-field>
 
         <!-- =-------------------- -->
         <mat-form-field class="cnpj">
-            <input type="string" placeholder="cnpj" matInput formControlName="cnpj">
+            <input type="string" placeholder="cnpj" mask="00.000.000./0000-00" matInput formControlName="cnpj">
         </mat-form-field>
 
         <mat-form-field class="insc">
@@ -51,7 +51,7 @@
         </mat-form-field>
 
         <mat-form-field class="cep">
-            <input type="string" placeholder="cep" matInput formControlName="cep">
+            <input type="string" placeholder="cep" mask="000-000.00"  matInput formControlName="cep">
         </mat-form-field>
         <!-- ----------------------- -->
 
